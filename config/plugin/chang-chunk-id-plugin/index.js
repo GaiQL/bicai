@@ -17,6 +17,7 @@ class ChangeChunkIdPlugin {
                     
                     */
                     if( chunk.name && /Common_/.test(chunk.name) ){
+                        chunk.filenameTemplate = '../Common/js/[name].[chunkhash:8].chunk.js';
                         chunk.id = chunk.name;
                     }
                 })

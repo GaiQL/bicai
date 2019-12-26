@@ -15,7 +15,7 @@ class CommonExtractPlugin {
                 chunk
             }) => {
 
-                compilation.chunks = compilation.chunks.filter( chunk => !/Common/.test( chunk.name ) );
+                // compilation.chunks = compilation.chunks.filter( chunk => !/Common/.test( chunk.name ) );
 
             })
 
@@ -48,7 +48,7 @@ class CommonExtractPlugin {
                     const jsChunkNameStore = chunkNamePart.substr( chunkNamePart.indexOf('{'),chunkNamePart.indexOf('}')-1 );
                     linkHrefPathArr[1] = `(/Common_/.test(currenJsChunkName)?"../Common/js/":"static/js/")`;
                     linkHrefPathArr[2] = `currenJsChunkName`;
-                    linkHrefPathArr[4] = `currenJsChunkHash`;
+                    // linkHrefPathArr[4] = `currenJsChunkHash`;
                     footSoure[0] = linkHrefPathArr.join('+');
 
                     return Template.asString([
@@ -56,7 +56,7 @@ class CommonExtractPlugin {
                         `${changSign};`,
                         `var jsChunkNameStore = ${ jsChunkNameStore };`,
                         `var currenJsChunkName = (jsChunkNameStore[chunkId]||chunkId);`,
-                        `var currenJsChunkHash = (fileHashStore.jsHash[chunkId]||chunkId);`,
+                        // `var currenJsChunkHash = (fileHashStore.jsHash[chunkId]||chunkId);`,
                         ...footSoure
                     ]);
 

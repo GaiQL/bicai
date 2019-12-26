@@ -260,12 +260,12 @@ class MiniCssExtractPlugin {
       }) => {
         const renderedModules = Array.from(chunk.modulesIterable).filter(module => module.type === MODULE_TYPE);
 
-        if( /^Common_/.test(chunk.name) && this.options.commonChunkFilename ){ return }
+        // if( /^Common_/.test(chunk.name) && this.options.commonChunkFilename ){ return }
         if (renderedModules.length > 0) {
 
           result.push({
             render: () => this.renderContentAsset(compilation, chunk, renderedModules, compilation.runtimeTemplate.requestShortener),
-            filenameTemplate: this.options.chunkFilename,
+            filenameTemplate: /^Common_/.test(chunk.name)?this.options.commonChunkFilename:this.options.chunkFilename,
             // filenameTemplate: this.options.chunkFilename,
             pathOptions: {
               chunk,
@@ -494,7 +494,7 @@ class MiniCssExtractPlugin {
           const cssChunkNameStore = chunkNamePart.substr( chunkNamePart.indexOf('{'),chunkNamePart.indexOf('}')-1 );
           linkHrefPathArr[0] = `(/Common_/.test(currenCssChunkName)?"../Common/css/":"static/css/")`;
           linkHrefPathArr[1] = `currenCssChunkName`;
-          linkHrefPathArr[3] = `currenCssChunkHash`;
+          // linkHrefPathArr[3] = `currenCssChunkHash`;
           const linkHrefPathTransition =  linkHrefPathArr.join('+');
 
           return Template.asString([
@@ -503,7 +503,7 @@ class MiniCssExtractPlugin {
             `// ${pluginName} CSS loading`,
             `var cssChunkNameStore = ${cssChunkNameStore};`,
             `var currenCssChunkName = (cssChunkNameStore[chunkId]||chunkId);`,
-            `var currenCssChunkHash = (fileHashStore.cssHash[chunkId]||chunkId);`,
+            // `var currenCssChunkHash = (fileHashStore.cssHash[chunkId]||chunkId);`,
             `var cssChunks = ${JSON.stringify(chunkMap)};`, 
             'if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);', 
             'else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {', 
