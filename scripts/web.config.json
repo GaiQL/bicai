@@ -1,0 +1,118 @@
+{
+  "》〉调试模式": "0：不开启；1：开启",
+  "openTem": 0,
+  "》〉选择打包模式": "",
+  "envType": {
+    "dev": "",
+    "pro": ""
+  },
+  "===========orgId机构id/orgName机构名称===========": "",
+  "orgId": "",
+  "orgName": "",
+  "===========基础host===========": "配置银行接口：比财2.0和老版本银行用bcHost；新版银行用bankHost",
+  "hostOptions": {
+    "bc3": {
+      "bcHost": "http://192.168.10.245:9999",
+      "bankHost": "http://192.168.10.245:9001",
+      "realNameHost": "http://192.168.10.245:9000",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+    },
+    "yiye": {
+      "bcHost": "https://adv-yiye-test1.bicai365.com",
+      "bankHost": "https://openapi-yiye-test1.bicai365.com",
+      "realNameHost": "https://openapi-yiye-test1.bicai365.com",
+      "yiyeHost": "https://yiye-gateway.bicai365.com"
+    },
+
+    "开发dev": "开发阶段环境",
+    "dev": {
+      "bcHost": "https://finsuitdev.bicai365.com",
+      "bankHost": "https://openapi-centretest5.bicai365.com/dev",
+      "realNameHost": "https://openapi-centretest5.bicai365.com/dev",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+
+    },
+    "测试test1": "ytest",
+    "test1": {
+      "bcHost": "https://app-test1.bicai365.com",
+      "bankHost": "https://openapi-centretest1.bicai365.com",
+      "realNameHost": "https://openapi-centretest1.bicai365.com",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+
+    },
+    "测试test2": "adv",
+    "test2": {
+      "bcHost": "https://app-test2.bicai365.com",
+      "bankHost": "https://openapi-centretest2.bicai365.com",
+      "realNameHost": "https://openapi-centretest2.bicai365.com",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+    },
+    "测试test3": "adv1",
+    "test3": {
+      "bcHost": "https://app-test3.bicai365.com",
+      "bankHost": "https://openapi-centretest3.bicai365.com",
+      "realNameHost": "https://openapi-centretest3.bicai365.com",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+
+    },
+    "测试test4": "adv2",
+    "test4": {
+      "bcHost": "https://app-test4.bicai365.com",
+      "bankHost": "https://openapi-centretest4.bicai365.com",
+      "realNameHost": "https://openapi-centretest4.bicai365.com",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+    },
+    "测试test5": "adv3",
+    "test5": {
+      "bcHost": "https://app-test5.bicai365.com",
+      "bankHost": "https://openapi-centretest5.bicai365.com",
+      "realNameHost": "https://openapi-centretest5.bicai365.com",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+    },
+    "测试test6": "",
+    "test6": {
+      "bcHost": "https://app-test6.bicai365.com",
+      "bankHost": "https://openapi-centretest6.bicai365.com",
+      "realNameHost": "https://openapi-centretest6.bicai365.com",
+      "imgSrcHost": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/"
+    },
+
+    "生产pro": "线上生产环境",
+    "pro": {
+      "bcHost": "https://finsuit.bicai365.com",
+      "bankHost": "https://bankcentre.bicai365.com",
+      "realNameHost": "https://authapi.bicai365.com",
+      "imgSrcHost": "https://finsuit.oss-cn-beijing.aliyuncs.com/"
+
+    },
+    "华南灾备": "华南灾备",
+    "pro2": {
+      "bcHost": "https://finsuithn.bicai365.com",
+      "bankHost": "https://bankcentrehn.bicai365.com",
+      "realNameHost": "https://bankcentrehn.bicai365.com",
+      "imgSrcHost": "https://finsuit.oss-cn-beijing.aliyuncs.com/"
+    },
+    "灰度graytest": "灰度环境环境。和线上基本一致",
+    "graytest": {
+      "bcHost": "https://graytest.bicai365.com",
+      "bankHost": "https://bankcentrelevel1.bicai365.com",
+      "realNameHost": "https://authtestlevel.bicai365.com",
+      "imgSrcHost": "https://finsuit.oss-cn-beijing.aliyuncs.com/"
+    },
+    "mock": {
+      "bcHost": "https://finsuitdev.bicai365.com",
+      "bankHost": "http://mockjs.bicai.com"
+    },
+    "easy-mock": {
+      "bcHost": "https://finsuitdev.bicai365.com",
+      "bankHost": "https://easy-mock.com/mock/5c888970855c6a6ec372f264/bank"
+    }
+  },
+  "===========项目图片路径配置===========": "开发环境和生产环境区分",
+  "imgHost": {
+    "imgSrcHost_DEV": "https://finsuit-test.oss-cn-beijing.aliyuncs.com/",
+    "imgSrcHost_PRO": "https://finsuit.oss-cn-beijing.aliyuncs.com/"
+  },
+  "===========静态资源路径===========": "项目的图片，第三方库等的静态存放地址",
+  "staticHost": "https://openapih5test1.bicai365.com"
+}

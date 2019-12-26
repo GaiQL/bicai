@@ -1,0 +1,117 @@
+[
+
+    {
+        "orgId": "-3",
+        "bankName": "比财通用页面",
+        "describe": ""
+    },
+    {
+        "orgId": "245",
+        "bankName": "华通银行",
+        "describe": ""
+    },
+    {
+        "orgId": "227",
+        "bankName": "众邦银行",
+        "describe": ""
+    },
+    {
+        "orgId": "246",
+        "bankName": "中关村银行",
+        "describe": ""
+    },
+    {
+        "orgId": "203",
+        "bankName": "天津金城银行",
+        "describe": ""
+    },
+    {
+        "orgId": "248",
+        "bankName": "梅州客商银行",
+        "describe": ""
+    },
+    {
+        "orgId": "66",
+        "bankName": "工商银行",
+        "describe": ""
+    },
+    {
+        "orgId": "244",
+        "bankName": "安徽新安银行",
+        "describe": ""
+    },
+    {
+        "orgId": "242",
+        "bankName": "新网银行",
+        "describe": "仅支持比财app端，异业渠道暂时不支持"
+    },
+    {
+        "orgId": "243",
+        "bankName": "三湘银行",
+        "describe": ""
+    },
+    {
+        "orgId": "254",
+        "bankName": "天津滨海农商银行",
+        "describe": ""
+    },
+    {
+        "orgId": "62",
+        "bankName": "i邦银行",
+        "describe": "成都农商银行"
+    },
+    {
+        "orgId": "82",
+        "bankName": "营口银行",
+        "describe": ""
+    },
+
+    {
+        "orgId": "308",
+        "bankName": "新疆汇盈",
+        "describe": "orgId为模拟的"
+    },
+
+    {
+        "orgId": "176",
+        "bankName": "晋中银行",
+        "describe": ""
+    },
+    {
+        "orgId": "223",
+        "bankName": "辽宁振兴银行",
+        "describe": ""
+    },
+    {
+        "orgId": "174",
+        "bankName": "广州农商银行",
+        "describe": ""
+    },
+
+    {
+        "orgId": "263",
+        "bankName": "厦门国际",
+        "describe": ""
+    },
+
+    {
+        "orgId": "312",
+        "bankName": "广东华兴银行",
+        "describe": ""
+    },
+    {
+        "orgId": "238",
+        "bankName": "东莞银行",
+        "describe": ""
+    },
+    {
+        "orgId": "239",
+        "bankName": "哈密银行",
+        "describe": ""
+    },
+    {
+        "orgId": "00000",
+        "bankName": "为什么这么麻烦",
+        "describe": ""
+    }
+]

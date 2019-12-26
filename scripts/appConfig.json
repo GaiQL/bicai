@@ -1,0 +1,11 @@
+{
+  "app": {
+    "name": "OpenAPI",
+    "orgId": "",
+    "version": "",
+    "environment": "dev"
+  },
+  "config": {
+    "verbose": true
+  }
+}

@@ -1,0 +1,47 @@
+{
+    "dev": {
+        "sharedFoldersAddress":["smb://apph5:apph5@47.94.80.115/dev-openapi/banks/"],
+        "managementAddress":"https://openapi-centretest5.bicai365.com"
+    },
+    "test1": {
+        "sharedFoldersAddress":["smb://apph5:apph5@47.95.247.80/app-test1/app-h5-api/banks/"],
+        "managementAddress":"https://openapi-centretest4.bicai365.com"
+    },
+    "test2": {
+        "sharedFoldersAddress":["smb://apph5:apph5@39.105.124.40/app-test2/app-h5-api/banks/"],
+        "managementAddress":"https://openapi-centretest4.bicai365.com"
+    },
+    "test3": {
+        "sharedFoldersAddress":["smb://apph5:apph5@39.105.126.1/app-test3/app-h5-api/banks/"],
+        "managementAddress":"https://openapi-centretest4.bicai365.com"
+    },
+    "test4": {
+        "sharedFoldersAddress":["smb://apph5:apph5@39.105.28.240/app-test4/app-h5-api/banks/"],
+        "managementAddress":"https://openapi-centretest4.bicai365.com"
+    },
+    "test5": {
+        "sharedFoldersAddress":["smb://apph5:apph5@123.56.177.135/app-test5/app-h5-api/banks/"],
+        "managementAddress":"https://openapi-centretest4.bicai365.com"
+    },
+    "test6": {
+        "sharedFoldersAddress":["smb://apph5:apph5@39.106.21.176/app-test6/app-h5-api/banks/"],
+        "managementAddress":"https://openapi-centretest4.bicai365.com"
+    },
+    "preheat": {
+        "sharedFoldersAddress":["smb://apph5:apph5@39.107.64.211/graytest-openapi/banks/"],
+        "managementAddress":"https://bankcentremgr.bicai365.com"
+    },
+    "prod": {
+        "sharedFoldersAddress":[
+            "smb://h5api:h5api@39.107.92.244/h5api-5-banks-old/banks/",
+            "smb://h5api:h5api@39.106.106.180/h5api-6-banks-old/banks/",
+            "smb://h5api:h5api@39.106.51.145/h5api-7-banks-old/banks/",
+            "smb://h5api:h5api@39.105.157.1/h5api-8-banks-old/banks/",
+            "smb://h5api:h5api@39.106.131.104/h5api-9-banks-old/banks/",
+            "smb://h5api:h5api@101.201.69.90/h5api-10-banks-old/banks/",
+            "smb://h5api:h5api@47.94.107.25/h5api-11-banks-old/banks/",
+            "smb://h5api:h5api@123.56.189.82/h5api-12-banks-old/banks/"
+        ],
+        "managementAddress":"https://bankcentremgr.bicai365.com"
+    }
+}

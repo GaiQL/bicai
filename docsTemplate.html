@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        html,body,div,p,ul,ol,li,dl,dt,dd,table,tr,td,th,caption,form,hr,h1,h2,h3,h4,h5,h6,input,img{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            height: 100%;
+        }
+        html{
+            /*font-size: 100px;*/
+            font-size: 26.67vw;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul,li{
+            list-style: none;
+        }
+        img{
+            border:none;
+            display: block;
+        }
+        i{
+            display: block;
+        }
+
+        .box{
+            width: 100%;
+            height: 100%;
+            background: #FFFFFF;
+        }
+        .box h3{
+            text-align: center;
+            font-size: 0.2rem;
+            font-family:PingFangSC-Medium;
+            font-weight:500;
+            color:rgba(51,51,51,1);
+            line-height: 0.32rem;
+            padding: 0.24rem 0 0.2rem;
+        }
+        .box h6{
+            text-align: left;
+            font-size: 0.22rem;
+            font-family:PingFangSC-Medium;
+            font-weight:500;
+            color:rgba(51,51,51,1);
+            line-height: 0.32rem;
+        }
+        .box .card{
+            padding:0 0 0.15rem 0 !important;
+            font-size: 0.16rem;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height: 0.26rem;  
+        }
+        .company{
+            padding: 0 0.15rem 0.12rem;
+            font-size: 0.16rem;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height: 0.26rem;
+        }
+        .company span{
+            text-decoration: underline;
+        }
+        .box p{
+            font-size: 0.14rem;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height: 0.22rem;
+            text-indent: 0.28rem;
+            padding: 0 0.15rem;
+        }
+        .box .two-info{
+            padding: 0.12rem 0.15rem 0;
+        }
+        .box .name{
+            padding: 0.36rem 0 0.12rem;
+            font-size: 0.16rem;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height: 0.26rem;
+        }
+        .box .date{
+            padding: 0 0 0.15rem 0!important;
+            font-size: 0.16rem;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height: 0.26rem;  
+        }
+        .box .date2{
+            padding: 0.36rem 0 0.12rem 0.15rem!important;
+            font-size: 0.16rem;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height: 0.26rem;  
+        }
+        .box .address{
+            padding: 0 0 0.15rem 0 !important;
+            font-size: 0.16rem;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height: 0.26rem; 
+        }
+        .box .enclosure{
+            text-indent: 0;
+        }
+        .box .enclosure-step{
+            text-indent: 0.42rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+    
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        var firstParty = getUrlParam('firstParty');   
+        var cardID = getUrlParam('cardID');
+        var addr = getUrlParam('addr');
+        var PhoneNumber = getUrlParam('PhoneNumber');
+        var money = getUrlParam('money');
+        var bankElecAccountNum = getUrlParam('bankElecAccountNum');
+        let currentDate = getNowFormatDate();
+        let validDayNum = 90;
+        let endDate = getNewDay( currentDate,validDayNum );
+        let validDayStr = validDayNum + '天';
+
+        if( money == 'null' ){ money = '' };
+
+        let firstPartyDom = document.getElementsByClassName('firstParty');    //姓名
+        let currentDateDom = document.getElementsByClassName('currentDate');  //日期
+        let cardIDDom = document.getElementsByClassName('cardID');            //身份证号码
+        let addrDom = document.getElementsByClassName('addr');                //地址
+        let PhoneNumberDom = document.getElementsByClassName('PhoneNumber');  //电话
+        let endDateDom = document.getElementsByClassName('endDate');          //结束的日期
+        let validDayStrDom = document.getElementsByClassName('validDayStr');  //存期
+        let bankElecAccountNumDom = document.getElementsByClassName('bankElecAccountNum'); //二类户账号
+        let moneyDom = document.getElementsByClassName('money');              //本金
+        let currentYearDom = document.getElementsByClassName('currentYear');  //当前年
+        let currentMonthDom = document.getElementsByClassName('currentMonth');//当前月
+        let currentDayDom = document.getElementsByClassName('currentDay');    //当前日
+
+        addInnerHTML( firstPartyDom,firstParty );
+        addInnerHTML( cardIDDom,cardID );
+        addInnerHTML( addrDom,addr );
+        addInnerHTML( PhoneNumberDom,PhoneNumber );
+        addInnerHTML( currentDateDom,currentDate );
+        addInnerHTML( endDateDom,endDate );
+        addInnerHTML( validDayStrDom,validDayStr );
+        addInnerHTML( bankElecAccountNumDom,bankElecAccountNum );
+        addInnerHTML( moneyDom,money );
+        
+        let currentDateArr = currentDate.split('-');
+        addInnerHTML( currentYearDom,currentDateArr[0] );
+        addInnerHTML( currentMonthDom,currentDateArr[1] );
+        addInnerHTML( currentDayDom,currentDateArr[2] );
+
+        //获取url中的参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return decodeURI(r[2]); return null; //返回参数值
+        }
+
+        function addInnerHTML( domArr,data ){
+            if( !domArr.length ){ return }
+            for( var i=0;i<domArr.length;i++ ){
+                domArr[i].innerHTML = data;
+            }
+        }
+
+        //获取当前时间，格式YYYY-MM-DD
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "-";
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = year + seperator1 + month + seperator1 + strDate;
+            return currentdate;
+        }
+
+        function getNewDay(dateTemp, days) {
+            var dateTemp = dateTemp.split("-");
+            var nDate = new Date(dateTemp[1] + '/' + dateTemp[2] + '/' + dateTemp[0]); 
+            var millSeconds = Math.abs(nDate) + (days * 24 * 60 * 60 * 1000);
+            var rDate = new Date(millSeconds);
+            var year = rDate.getFullYear();
+            var month = rDate.getMonth() + 1;
+            if (month < 10) month = "0" + month;
+            var date = rDate.getDate();
+            if (date < 10) date = "0" + date;
+            return (year + "-" + month + "-" + date);
+        }
+
+    </script>
+
+</body>
+</html>

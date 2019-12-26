@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "baseUrl":"src",
+    "paths": {
+      "Common": ["Common/*"],
+      "-3": ["-3/*"],
+      "245": ["245/*"],
+      "227": ["227/*"],
+      "246": ["246/*"],
+      "203": ["203/*"],
+      "248": ["248/*"],
+      "66": ["66/*"],
+      "242": ["242/*"],
+      "244": ["244/*"],
+      "243": ["243/*"],
+      "82": ["82/*"],
+      "308": ["308/*"],
+      "176": ["176/*"],
+      "223": ["223/*"],
+      "174": ["174/*"],
+      "263": ["263/*"],
+      "312": ["312/*"],
+      "238": ["238/*"],
+      "239": ["239/*"]
+    },
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6","esnext", "dom"],
+    "allowJs": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "allowUnreachableCode": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/**/**.js"
+  ]
+}
