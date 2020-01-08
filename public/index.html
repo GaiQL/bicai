@@ -9,11 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#000000" />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <script src="../Common/hashFile.js"></script>
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+
+    <script src="<%= htmlWebpackPlugin.options.commonResourcePath %>/hashFile.js"></script>
     <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
     <!--<script src="./vconsole.min.js"></script>-->
-    <script src="./initialize.js"></script>
+    <script src="<%= htmlWebpackPlugin.options.commonResourcePath %>/initialize.js"></script>
     <script src="https://cdn.bootcss.com/react/16.8.3/umd/react.production.min.js"></script>
     <script src="https://cdn.bootcss.com/react-dom/16.8.3/umd/react-dom.production.min.js"></script>
     <script src="https://cdn.bootcss.com/mobx/5.9.0/mobx.umd.min.js"></script>
@@ -26,9 +27,9 @@
     <noscript>1.0.0</noscript>
     <div id="root"></div>
 </body>
-<script src="./pxrem.js"></script>
+<script src="<%= htmlWebpackPlugin.options.commonResourcePath %>/pxrem.js"></script>
 <script>
-    let theme = JSON.parse(window.sessionStorage.getItem('theme'))
+    let theme = JSON.parse(window.sessionStorage.getItem('theme'));
     if (theme) {
         document.getElementsByTagName('body')[0].setAttribute('data-theme', theme)
     }

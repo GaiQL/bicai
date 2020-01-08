@@ -1,8 +1,20 @@
+
+import PGheihei from 'Common/Pgtest';
 import './style.scss';
 
-export default (async()=>{
-    const PGheihei = await import(/* webpackChunkName: "Common_test_index" */'Common/Pgtest');
-    class heihei extends PGheihei.default{
-    }
-    return heihei
-})()
+class heihei extends PGheihei{
+}
+
+export default heihei;
+// export const haah = 123;
+
+
+// export default (async()=>{
+// // import  from 'Common/Pgtest';
+//     const PGheihei = (await import('Common/Pgtest')).default;
+//     class heihei extends PGheihei{
+//     }
+//     return heihei
+// })();   
+
+

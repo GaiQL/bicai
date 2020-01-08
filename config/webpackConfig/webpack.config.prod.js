@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('../plugin/mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const asyncImportPluginFactory = require('../plugin/async-import-plugin');
 let paths = require('../paths');
 const getClientEnvironment = require('../env');
 
@@ -22,9 +23,22 @@ module.exports = ( bankId ) => {
   // `publicUrl` is just like `publicPath`, but we will provide it to our app
   // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
   // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
+  // const publicUrl = publicPath.slice(0, -1);
   const publicUrl = publicPath.slice(0, -1);
   // Get environment variables to inject into our app.
   const env = getClientEnvironment(publicUrl);
+
+  baseConfig.module.rules[0].oneOf.forEach(( e,i )=>{
+    if( e.loader == "awesome-typescript-loader" ){
+
+      let getCustomTransformers = e.options.getCustomTransformers();
+      getCustomTransformers.before.unshift( asyncImportPluginFactory() );
+      e.options.getCustomTransformers = () => ({
+        ...getCustomTransformers
+      })
+
+    }
+  })
 
   return merge(baseConfig,{
 
@@ -51,6 +65,7 @@ module.exports = ( bankId ) => {
           minifyCSS: true,
           minifyURLs: true,
         },
+        commonResourcePath:'../common'
       }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.

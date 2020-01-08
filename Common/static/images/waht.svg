@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="17px" viewBox="0 0 16 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>问题2@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="差异页面" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="持仓页——持有中" transform="translate(-91.000000, -422.000000)">
+            <g id="倍倍金" transform="translate(15.000000, 228.000000)">
+                <g id="text-5" transform="translate(12.000000, 191.000000)">
+                    <g id="icon_help" transform="translate(64.000000, 3.000000)">
+                        <path d="M8,14.5 C11.5738576,14.5 14.5,11.5738576 14.5,8 C14.5,4.42614237 11.5738576,1.5 8,1.5 C4.42614237,1.5 1.5,4.42614237 1.5,8 C1.5,11.5738576 4.42614237,14.5 8,14.5 Z" id="Path" stroke="#508CEE"></path>
+                        <path d="M8.16403241,10 C8.16403241,9.50907421 8.16403241,9.0673896 8.16403241,8.67494618 C8.16403241,8.08628105 8.1,7.92494618 8.8,7.32494618 L9,7.12494618 C9.2,6.87494618 9.3,6.62494618 9.3,6.32494618 C9.3,5.97494618 9.2,5.67494618 9,5.42494618 C8.8,5.22494618 8.45,5.07494618 8.1,5.07494618 C7.6,5.07494618 7.25,5.22494618 7,5.52494618 C6.8,5.77494618 6.7,6.17494618 6.7,6.67494618" id="路径" stroke="#508CEE" fill-rule="nonzero"></path>
+                        <circle id="椭圆形" fill="#508CEE" cx="8.16429758" cy="11.5" r="1"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -173,7 +173,17 @@ module.exports = ( bankId ) => {
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
         chunks: 'all',
-        name: false,
+        // name: false,
+        // cacheGroups:{
+        //   vendors: { 
+        //     test: /[\\/]src[\\/]Common/,
+        //       name: 'vendors', 
+        //       minSize: 0,
+        //       minChunks: 1, 
+        //       chunks: 'async',
+        //       priority: 1 // 该配置项是设置处理的优先级，数值越大越优先处理 
+        //   }
+        // }
       },
       // Keep the runtime chunk seperated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
@@ -391,16 +401,16 @@ module.exports = ( bankId ) => {
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      new webpack.DllReferencePlugin(
-        ...dependenciesDllArr
-      ),
-      new AddAssetHtmlWebpackPlugin([
-        ...(
-          fs.readdirSync('./dependenciesDll')
-          .filter( e => /.js$/.test(e) )
-          .map( (e) => { return { filepath:path.resolve(__dirname, `../dependenciesDll/${e}`) } } )
-        )
-      ])
+      // new webpack.DllReferencePlugin(
+      //   ...dependenciesDllArr
+      // ),
+      // new AddAssetHtmlWebpackPlugin([
+      //   ...(
+      //     fs.readdirSync('./dependenciesDll')
+      //     .filter( e => /.js$/.test(e) )
+      //     .map( (e) => { return { filepath:path.resolve(__dirname, `../dependenciesDll/${e}`) } } )
+      //   )
+      // ])
     ],
     // Some libraries import Node modules but don't use them in the browser.
     // Tell Webpack to provide empty mocks for them so importing them works.

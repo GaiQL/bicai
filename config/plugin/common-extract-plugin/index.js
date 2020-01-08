@@ -46,7 +46,7 @@ class CommonExtractPlugin {
                     let linkHrefPathArr = footSoure[0].split('+');
                     let chunkNamePart = linkHrefPathArr[2]
                     const jsChunkNameStore = chunkNamePart.substr( chunkNamePart.indexOf('{'),chunkNamePart.indexOf('}')-1 );
-                    linkHrefPathArr[1] = `(/Common_/.test(currenJsChunkName)?"../Common/js/":"static/js/")`;
+                    linkHrefPathArr[1] = `(/Common_/.test(currenJsChunkName)?"../Common/static/js/":"static/js/")`;
                     linkHrefPathArr[2] = `currenJsChunkName`;
                     linkHrefPathArr[4] = `currenJsChunkHash`;
                     footSoure[0] = linkHrefPathArr.join('+');

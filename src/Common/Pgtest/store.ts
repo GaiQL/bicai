@@ -6,7 +6,7 @@ class Store {
         this.num = 0
     }
     additionNum = () => {
-        this.num = addition( this.num );
+        this.num = addition( this.num );   
     }
 }
 

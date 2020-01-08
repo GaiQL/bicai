@@ -403,6 +403,8 @@ class MiniCssExtractPlugin {
   
        */
       mainTemplate.hooks.localVars.tap(pluginName, (source, chunk) => {
+
+        console.log( compilation )
         const chunkMap = this.getCssChunkObject(chunk);
 
         if (Object.keys(chunkMap).length > 0) {
@@ -492,7 +494,7 @@ class MiniCssExtractPlugin {
           let linkHrefPathArr = linkHrefPath.split('+');
           let chunkNamePart = linkHrefPathArr[1]
           const cssChunkNameStore = chunkNamePart.substr( chunkNamePart.indexOf('{'),chunkNamePart.indexOf('}')-1 );
-          linkHrefPathArr[0] = `(/Common_/.test(currenCssChunkName)?"../Common/css/":"static/css/")`;
+          linkHrefPathArr[0] = `(/Common_/.test(currenCssChunkName)?"../Common/static/css/":"static/css/")`;
           linkHrefPathArr[1] = `currenCssChunkName`;
           linkHrefPathArr[3] = `currenCssChunkHash`;
           const linkHrefPathTransition =  linkHrefPathArr.join('+');

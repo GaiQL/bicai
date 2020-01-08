@@ -48,7 +48,7 @@ module.exports = ( bankId ) => {
     publicUrl: getPublicUrl(resolveApp('package.json')),
     servedPath: getServedPath(resolveApp('package.json')),
     appPath: resolveApp('.'),
-    appBuild: resolveApp('build'),
+    appBuild: bankId == "common"?resolveApp('common'):resolveApp(`${bankId}`),
     appPublic: resolveApp('public'),
     appHtml: resolveApp('public/index.html'),
     appIndexJs: resolveApp(`src/${bankId}/index.js`),

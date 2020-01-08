@@ -5,7 +5,7 @@ class CommonExtractPlugin {
 
     constructor(){
 
-        this.hashFilePath = './Common/hashFile.js';
+        this.hashFilePath = './common/hashFile.js';
         this.fileHashStore = {
             jsHash:{},
             cssHash:{}

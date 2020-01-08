@@ -1,10 +1,11 @@
 'use strict';
 
-const path = require('path');
-const webpack = require('../plugin/webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('../plugin/mini-css-extract-plugin');
-const ChangeChunkIdPlugin = require('../plugin/chang-chunk-id-plugin');
+const ChangeBuildIdPlugin = require('../plugin/chang-build-id-plugin');
+const asyncImportPluginFactory = require('../plugin/async-import-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -15,7 +16,7 @@ const getClientEnvironment = require('../env');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
-const tsImportPluginFactory = require('ts-import-plugin')
+const tsImportPluginFactory = require('ts-import-plugin');
 const rootDir = path.dirname(__dirname);
 const Config = require('../index');
 const fs = require('fs');
@@ -108,7 +109,6 @@ module.exports = ( bankId ) => {
     // In production, we only want to load the app code.
     entry: [`${paths.appSrc}/index.js`],
     output: {
-      // The build folder.
       path: paths.appBuild,
       // Generated JS file names (with nested folders).
       // There will be one main bundle, and one file per asynchronous chunk.
@@ -173,6 +173,16 @@ module.exports = ( bankId ) => {
       splitChunks: {
         chunks: 'all',
         name: false,
+        // cacheGroups:{
+        //   vendor: {
+        //     name: "store",
+        //     test: /[\\/]Common[\\/]Pgtest[\\/]store/,
+        //     chunks: "all",
+        //     minSize:0,
+        //     minChunks:1,
+        //     priority: 10
+        //   }
+        // }
       },
       // Keep the runtime chunk seperated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
@@ -246,7 +256,7 @@ module.exports = ( bankId ) => {
           },
           {
             test: /\.(tsx|ts|js|jsx)$/,
-            include: paths.src,
+            include: paths.src,   
             loader: 'awesome-typescript-loader',
             options: {
                 useCache: true,
@@ -254,8 +264,10 @@ module.exports = ( bankId ) => {
                 errorsAsWarnings: true,
                 // usePrecompiledFiles: true,
                 sourceMap: false,
-                getCustomTransformers: () => ({
-                  before: [ tsImportPluginFactory({ libraryName: 'antd-mobile', style: 'css' }) ]
+                getCustomTransformers: ( program ) => ({
+                  before: [ 
+                    tsImportPluginFactory({ libraryName: 'antd-mobile', style: 'css' })
+                  ]
                 })
             }
           },
@@ -315,63 +327,63 @@ module.exports = ( bankId ) => {
       // Generate a manifest file which contains a mapping of all asset filenames
       // to their corresponding output file so that tools can pick it up without
       // having to parse `index.html`.
-      new ManifestPlugin({
-        fileName: 'asset-manifest.json',
-        publicPath: publicPath,
-      }),
+      // new ManifestPlugin({ 
+      //   fileName: 'asset-manifest.json',
+      //   publicPath: publicPath,
+      // }),
       // Generate a service worker script that will precache, and keep up to date,
       // the HTML & assets that are part of the Webpack build.
-      new SWPrecacheWebpackPlugin({
-        // By default, a cache-busting query parameter is appended to requests
-        // used to populate the caches, to ensure the responses are fresh.
-        // If a URL is already hashed by Webpack, then there is no concern
-        // about it being stale, and the cache-busting can be skipped.
-        dontCacheBustUrlsMatching: /\.\w{8}\./,
-        filename: 'service-worker.js',
-        logger(message) {
-          if (message.indexOf('Total precache size is') === 0) {
-            // This message occurs for every build and is a bit too noisy.
-            return;
-          }
-          if (message.indexOf('Skipping static resource') === 0) {
-            // This message obscures real errors so we ignore it.
-            // https://github.com/facebook/create-react-app/issues/2612
-            return;
-          }
-          console.log(message);
-        },
-        minify: true,
-        // For unknown URLs, fallback to the index page
-        navigateFallback: publicUrl + '/index.html',
-        // Ignores URLs starting from /__ (useful for Firebase):
-        // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
-        navigateFallbackWhitelist: [/^(?!\/__).*/],
-        // Don't precache sourcemaps (they're large) and build asset manifest:
-        staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
-        // Disabling skipWaiting ensures better compatibility with web apps that
-        // use deferred or lazy-loading, at the expense of "keeping around" the
-        // previously cached version of your web app until all open instances have
-        // been closed.
-        // See https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase
-        skipWaiting: false,
-      }),
+      // new SWPrecacheWebpackPlugin({
+      //   // By default, a cache-busting query parameter is appended to requests
+      //   // used to populate the caches, to ensure the responses are fresh.
+      //   // If a URL is already hashed by Webpack, then there is no concern
+      //   // about it being stale, and the cache-busting can be skipped.
+      //   dontCacheBustUrlsMatching: /\.\w{8}\./,
+      //   filename: 'service-worker.js',
+      //   logger(message) {
+      //     if (message.indexOf('Total precache size is') === 0) {
+      //       // This message occurs for every build and is a bit too noisy.
+      //       return;
+      //     }
+      //     if (message.indexOf('Skipping static resource') === 0) {
+      //       // This message obscures real errors so we ignore it.
+      //       // https://github.com/facebook/create-react-app/issues/2612
+      //       return;
+      //     }
+      //     console.log(message);
+      //   },
+      //   minify: true,
+      //   // For unknown URLs, fallback to the index page
+      //   navigateFallback: publicUrl + '/index.html',
+      //   // Ignores URLs starting from /__ (useful for Firebase):
+      //   // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
+      //   navigateFallbackWhitelist: [/^(?!\/__).*/],
+      //   // Don't precache sourcemaps (they're large) and build asset manifest:
+      //   staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+      //   // Disabling skipWaiting ensures better compatibility with web apps that
+      //   // use deferred or lazy-loading, at the expense of "keeping around" the
+      //   // previously cached version of your web app until all open instances have
+      //   // been closed.
+      //   // See https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#skip_the_waiting_phase
+      //   skipWaiting: false,
+      // }),
       // Moment.js is an extremely popular library that bundles large locale files
       // by default due to how Webpack interprets its code. This is a practical
       // solution that requires the user to opt into importing specific locales.
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      new ChangeChunkIdPlugin(),
-      new webpack.DllReferencePlugin(
-        ...dependenciesDllArr
-      ),
-      new AddAssetHtmlWebpackPlugin([
-        ...(
-          fs.readdirSync('./dependenciesDll')
-          .filter( e => /.js$/.test(e) )
-          .map( (e) => { return { filepath:path.resolve(__dirname, `../../dependenciesDll/${e}`) } } )
-        )
-      ]),
+      new ChangeBuildIdPlugin(),
+      // new webpack.DllReferencePlugin(
+      //   ...dependenciesDllArr
+      // ),
+      // new AddAssetHtmlWebpackPlugin([
+      //   ...(
+      //     fs.readdirSync('./dependenciesDll')
+      //     .filter( e => /.js$/.test(e) )
+      //     .map( (e) => { return { filepath:path.resolve(__dirname, `../../dependenciesDll/${e}`) } } )
+      //   )
+      // ]),
       // new CommonExtractPlugin()
     ],
     // Some libraries import Node modules but don't use them in the browser.
