@@ -502,7 +502,7 @@ class MiniCssExtractPlugin {
           return Template.asString([
             source,
             '',
-            `// ${pluginName} CSS loading`,
+            `// ${pluginName} CSS loading`, 
             `var cssChunkNameStore = ${cssChunkNameStore};`,
             `var currenCssChunkName = (cssChunkNameStore[chunkId]||chunkId);`,
             `var currenCssChunkHash = (fileHashStore.cssHash[chunkId]||chunkId);`,

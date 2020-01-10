@@ -6,6 +6,7 @@ class CommonExtractPlugin {
     constructor(){
 
         this.hashFilePath = './common/hashFile.js';
+        this.chunkGroups = './common/chunkGroupsFile.js'
         this.fileHashStore = {
             jsHash:{},
             cssHash:{}
@@ -40,9 +41,22 @@ class CommonExtractPlugin {
 
         })
 
+        compiler.hooks.afterEmit.tap(pluginName, compilation => {
+
+            let chunkGroupsData = {};
+            compilation.chunkGroups.forEach(( chunkGroup )=>{
+                chunkGroupsData[chunkGroup.name] = chunkGroup.id.split('+');
+            })
+            let data = `var chunkGroupsStore = ${JSON.stringify(chunkGroupsData)}`;
+            fs.writeFile(this.chunkGroups,data,(err)=>{
+                if (err) throw err;
+                console.log('chunkGroupsFile创建成功');
+            })
+
+        })
+
         compiler.hooks.done.tap(pluginName, stats => {
 
-            console.log( this.fileHashStore )
             let data = `var fileHashStore = ${JSON.stringify(this.fileHashStore)}`;
             fs.writeFile(this.hashFilePath,data,(err)=>{
                 if (err) throw err;

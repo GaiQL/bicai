@@ -1,6 +1,6 @@
 'use strict';
 
-const MiniCssExtractPlugin = require('../plugin/mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ChangeBuildIdPlugin = require('../plugin/chang-build-id-plugin');
 const asyncImportPluginFactory = require('../plugin/async-import-plugin');
 const path = require('path');
@@ -170,20 +170,10 @@ module.exports = ( bankId ) => {
       // Automatically split vendor and commons
       // https://twitter.com/wSokra/status/969633336732905474
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-      splitChunks: {
-        chunks: 'all',
-        name: false,
-        // cacheGroups:{
-        //   vendor: {
-        //     name: "store",
-        //     test: /[\\/]Common[\\/]Pgtest[\\/]store/,
-        //     chunks: "all",
-        //     minSize:0,
-        //     minChunks:1,
-        //     priority: 10
-        //   }
-        // }
-      },
+      // splitChunks: {
+      //   chunks: 'all',
+      //   name: false
+      // },
       // Keep the runtime chunk seperated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
       runtimeChunk: true,

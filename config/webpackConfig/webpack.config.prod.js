@@ -1,12 +1,13 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
-const CommonExtractPlugin = require('../plugin/common-extract-plugin');
-const MiniCssExtractPlugin = require('../plugin/mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const asyncImportPluginFactory = require('../plugin/async-import-plugin');
+const CommonExtractPlugin = require('../plugin/common-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ChunkLoadingPlugin = require('../plugin/chunk-loading-plugin');
 let paths = require('../paths');
 const getClientEnvironment = require('../env');
 
@@ -77,13 +78,20 @@ module.exports = ( bankId ) => {
       // in `package.json`, in which case it will be the pathname of that URL.
       new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
       new CommonExtractPlugin(),
+      new ChunkLoadingPlugin(),
       new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
         chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-        commonChunkFilename: '../Common/css/[name].[contenthash:8].chunk.css',
       })
 
-    ]
+    ],
+
+    optimization:{
+      splitChunks: {
+        chunks: 'all',
+        name: false
+      },
+    }
 
   })
 

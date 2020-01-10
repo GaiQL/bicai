@@ -66,6 +66,37 @@ class CommonExtractPlugin {
 
             })
 
+            // 修改 mini-css-extract-plugin
+
+            compilation.mainTemplate.hooks.requireEnsure.tap(pluginName, (source, chunk, hash) => {
+
+                let sourceArr = source.split('\n');
+                let hrefIndex = sourceArr.findIndex( e => /var href/.test(e) );
+                let hrefValue = sourceArr[hrefIndex];
+
+                let linkHrefPathArr = hrefValue.split('+');
+                let chunkNamePart = linkHrefPathArr[1]
+                const cssChunkNameStore = chunkNamePart.substr( chunkNamePart.indexOf('{'),chunkNamePart.indexOf('}')-1 );
+                let variablePart = linkHrefPathArr[0].split('=');
+                variablePart[1] = `(/Common_/.test(currenCssChunkName)?"../Common/static/css/":"static/css/")`;
+                linkHrefPathArr[0] = variablePart.join('=');
+                linkHrefPathArr[1] = `currenCssChunkName`;
+                linkHrefPathArr[3] = `currenCssChunkHash`;
+
+                sourceArr[hrefIndex] = linkHrefPathArr.join('+');
+
+                let pluginIndex = sourceArr.findIndex( e => /mini-css-extract-plugin/.test(e) );
+
+                sourceArr.splice( pluginIndex + 1, 0,
+                    `var cssChunkNameStore = ${cssChunkNameStore};`,
+                    `var currenCssChunkName = (cssChunkNameStore[chunkId]||chunkId);`,
+                    `var currenCssChunkHash = (fileHashStore.cssHash[chunkId]||chunkId);`
+                );
+
+                return Template.asString([...sourceArr]);
+
+            })
+
         })
 
     }
