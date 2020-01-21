@@ -1,0 +1,40 @@
+@import 'Common/assets/style/px2rem.scss';
+.bottomImageBg{
+  position: fixed ;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.bottomImage{
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #508CEE;
+  background: #fff;
+  z-index: 1000;
+  font-size: px2rem(20);
+  .img-select{
+    display: block;
+    height: px2rem(44);
+    line-height: px2rem(44);
+    border-bottom: 1px solid #ddd;
+
+  }
+  .img-select-cancel{
+    display: block;
+    height: px2rem(44);
+    line-height: px2rem(44);
+    border-top: px2rem(6) solid #999;
+
+  }
+  label{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+}

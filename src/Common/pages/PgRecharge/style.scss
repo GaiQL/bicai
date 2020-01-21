@@ -1,0 +1,197 @@
+@import 'Common/assets/style/px2rem.scss';
+.am-action-sheet-button-list-item{
+  color: #508CEE;
+}
+.recharge {
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+  .info {
+    margin: px2rem(14) px2rem(15) 0;
+    overflow: hidden;
+    position: relative;
+    height: px2rem(84);
+    border-radius: px2rem(6) px2rem(6) 0 0;
+    color: #fff;
+    .img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+    }
+    h4 {
+      font-weight: normal;
+      padding-top: px2rem(12);
+      padding-left: px2rem(15);
+      position: relative;
+      i {
+        width: px2rem(18);
+        height: px2rem(18);
+        border-radius: 50%;
+        background: #fff;
+        display: inline-block;
+        margin-top: px2rem(2);
+        overflow: hidden;
+        text-align: center;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          vertical-align: top;
+        }
+      }
+      span {
+        font-size: px2rem(14);
+        line-height: px2rem(22);
+        padding-left: px2rem(8);
+        vertical-align: top;
+      }
+    }
+    p {
+      padding-right: px2rem(15);
+      position: relative;
+      text-align: right;
+      font-size: px2rem(14);
+      line-height: px2rem(22);
+    }
+    p:last-child {
+      font-size: px2rem(10);
+      line-height: px2rem(14);
+      padding-top: px2rem(4);
+    }
+  }
+  .info-cash {
+    // .error-msg{ margin-top: px2rem(12);}
+    //height: px2rem(181);
+    box-shadow: 0px -1px 2px 0px rgba(176, 176, 176, 0.5);
+    background: rgba(255, 255, 255, 1);
+    margin-bottom: px2rem(36);
+    position: relative;
+    .input-box{
+      height: px2rem(108);
+      
+      .buy-words{
+        padding: px2rem(24) 0 px2rem(12) px2rem(15);
+        font-size: px2rem(14);
+        font-family:PingFangSC-Regular;
+        font-weight:400;
+        color:rgba(51,51,51,1);
+        line-height: px2rem(22);
+      }
+    }
+    .err-info{
+        height: px2rem(33);
+        line-height: px2rem(33);
+        background:rgba(255,234,216,1);
+        position: relative;
+        span{
+            display: block;
+            width: 0;
+            height: 0;
+            border: transparent solid 4px;
+            border-top: #FFEAD8 solid 4px;
+            position: absolute;
+            left: px2rem(15);
+            top: px2rem(-8);
+            transform: rotate(180deg);
+            overflow: hidden;
+        }
+        div{
+            padding-left: px2rem(15);
+            font-size: px2rem(14);
+            font-family:PingFangSC-Regular;
+            color:rgba(244,51,60,1);
+        }
+    }
+    .info-cash1 {
+      border-top: 1px solid #DDDDDD;
+      padding: px2rem(11) px2rem(15) px2rem(13) 0;
+      margin-left: px2rem(15);
+      position: relative;
+      p {
+        color: #333;
+        line-height: px2rem(22);
+        margin-bottom:px2rem(4);
+        font-size: px2rem(14);
+        span {
+          display: inline-block;
+          width: px2rem(68);
+        }
+      }
+      p.tip {
+        margin-bottom:0;
+        color: #666;
+        .click-words{
+          color: #508CEE;
+          font-weight: 400;
+        }
+      }
+      i {
+        position: absolute;
+        color: #999999;
+        right: px2rem(12);
+        top: px2rem(28);
+      }
+      i.mrt40{
+        top: px2rem(40);
+      }
+    }
+    .info-cash1.rechage-active{
+      border-top: 0;
+    }
+
+    .isBorderTop {
+      border-top: none;
+    }
+  }
+
+  .info-tip {
+    color: #999;
+    line-height: px2rem(19);
+    font-size: px2rem(12);
+    padding: px2rem(12) px2rem(15) 0;
+    span {
+      color: #508cee;
+    }
+    .gobig {
+      margin-left: px2rem(5);
+    }
+  }
+}
+
+
+.recharge-agree {
+  padding: 0 px2rem(15);
+
+  div {
+      width: 100%;
+     // height: px2rem(38);
+      display: flex;
+      line-height: px2rem(19);
+      height: px2rem(19);
+      margin-bottom: px2rem(12);
+      i {
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          padding-top: px2rem(2);
+          color: #508CEE;
+
+          img {
+              max-width: 100%;
+              max-height: 100%;
+          }
+      }
+
+      p {
+          width: 100%;
+          color: #999999;
+          font-size: px2rem(12);
+          padding-left: px2rem(6);
+          span {
+              color: #508CEE;
+              display: contents
+          }
+      }
+  }
+}

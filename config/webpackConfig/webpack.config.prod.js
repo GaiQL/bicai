@@ -8,13 +8,14 @@ const asyncImportPluginFactory = require('../plugin/async-import-plugin');
 const CommonExtractPlugin = require('../plugin/common-extract-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ChunkLoadingPlugin = require('../plugin/chunk-loading-plugin');
-let paths = require('../paths');
+const CreateChunkGruopFilePlugin = require('../plugin/create-chunkGruop-file-plugin');
+const createPaths = require('../paths');
 const getClientEnvironment = require('../env');
 
 module.exports = ( bankId ) => {
 
-  const baseConfig = require('./webpack.config.common')(bankId);
-  paths = paths( bankId );
+  const baseConfig = require('./webpack.config.dev')(bankId);
+  let paths = createPaths( bankId );
 
     // Webpack uses `publicPath` to determine where the app is being served from.
   // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -29,69 +30,44 @@ module.exports = ( bankId ) => {
   // Get environment variables to inject into our app.
   const env = getClientEnvironment(publicUrl);
 
-  baseConfig.module.rules[0].oneOf.forEach(( e,i )=>{
-    if( e.loader == "awesome-typescript-loader" ){
+  // baseConfig.module.rules[0].oneOf.forEach(( e,i )=>{
+  //   if( e.loader == "awesome-typescript-loader" ){
 
-      let getCustomTransformers = e.options.getCustomTransformers();
-      getCustomTransformers.before.unshift( asyncImportPluginFactory() );
-      e.options.getCustomTransformers = () => ({
-        ...getCustomTransformers
-      })
+  //     let getCustomTransformers = e.options.getCustomTransformers();
+  //     getCustomTransformers.before.unshift( asyncImportPluginFactory() );
+  //     e.options.getCustomTransformers = () => ({
+  //       ...getCustomTransformers
+  //     })
 
-    }
-  })
+  //   }
+  // })
 
   return merge(baseConfig,{
 
-    output: {
-      filename: 'static/js/[name].[chunkhash:8].js',
-      chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
-    },
-
-    plugins: [
-
-      // Generates an `index.html` file with the <script> injected.
+    plugins:[
       new HtmlWebpackPlugin({
         inject: true,
         template: paths.appHtml,
         minify: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          keepClosingSlash: true,
-          minifyJS: true,
-          minifyCSS: true,
-          minifyURLs: true,
+          // removeComments: true,
+          // collapseWhitespace: true,
+          // removeRedundantAttributes: true,
+          // useShortDoctype: true,
+          // removeEmptyAttributes: true,
+          // removeStyleLinkTypeAttributes: true,
+          // keepClosingSlash: true,
+          // minifyJS: true,  
+          // minifyCSS: true,
+          // minifyURLs: true,
         },
         commonResourcePath:'../common'
       }),
-      // Inlines the webpack runtime script. This script is too small to warrant
-      // a network request.
-      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
-      // Makes some environment variables available in index.html.
-      // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
-      // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-      // In production, it will be an empty string unless you specify "homepage"
-      // in `package.json`, in which case it will be the pathname of that URL.
       new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
-      new CommonExtractPlugin(),
-      new ChunkLoadingPlugin(),
-      new MiniCssExtractPlugin({
-        filename: 'static/css/[name].[contenthash:8].css',
-        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-      })
-
-    ],
-
-    optimization:{
-      splitChunks: {
-        chunks: 'all',
-        name: false
-      },
-    }
+      new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
+      // new CreateChunkGruopFilePlugin( bankId ),
+      // new ChunkLoadingPlugin(),
+      // new CommonExtractPlugin( baseConfig.mode )
+    ]
 
   })
 

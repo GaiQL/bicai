@@ -1,0 +1,78 @@
+@import 'Common/assets/style/px2rem.scss';
+// ../../../assets/images/depositBg.jpg
+// $bgImg:url('~assets/images/depositBg.jpg');
+
+$bgImg:url('~$bcImage/images/depositBg.jpg');
+
+.login{
+  .line{
+    margin-bottom: px2rem(30);
+  }
+  .list-box{
+    width:px2rem(300);
+    height: px2rem(300);
+    background: $bgImg no-repeat;
+    background-size: px2rem(300) px2rem(300);
+}
+}
+.safe-code {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: px2rem(200) auto 0;
+    background: #fff;
+    padding-top: px2rem(10);
+    text-align: center;
+    width: px2rem(280);
+    height: px2rem(150);
+    border-radius: px2rem(6);
+  }
+
+  p {
+    flex: 1;
+    font-size: px2rem(18);
+  }
+
+  .btn {
+    flex: 2;
+    display: flex;
+
+    button {
+      flex: 1;
+      border-top: 1px solid #ccc;
+      color: #007aff;
+
+      &:first-child {
+        border-right: 1px solid #ccc;
+      }
+    }
+
+  }
+
+  .middle {
+    display: flex;
+    padding: px2rem(15);
+    flex: 2;
+
+    img {
+      width: px2rem(80);
+      height: px2rem(40);
+    }
+
+    input {
+      flex: 1;
+      padding-left: px2rem(10);
+      height: px2rem(40);
+      border: 1px solid #ccc;
+    }
+  }
+
+}

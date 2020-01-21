@@ -1,0 +1,57 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.revenueList {
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+  overflow-y: auto;
+
+  .revenueList-1 {
+    background: #fff;
+    padding: 0 px2rem(25) px2rem(12);
+
+    p {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      color: #333333;
+      height: px2rem(30);
+      line-height: px2rem(30);
+      padding-top: px2rem(12);
+      font-size: px2rem(14);
+      span {
+        font-size: px2rem(22);
+      }
+    }
+  }
+  .revenueList-2 {
+    margin: px2rem(12) px2rem(15);
+    width: px2rem(345);
+    height: px2rem(114);
+    background: rgba(255, 255, 255, 1);
+
+    p {
+      height: px2rem(22);
+      font-size: px2rem(14);
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      line-height: px2rem(22);
+      padding: px2rem(8) px2rem(15);
+      span {
+        height: px2rem(22);
+        font-size: px2rem(14);
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(153, 153, 153, 1);
+        line-height: px2rem(22);
+      }
+    }
+  }
+
+
+
+}

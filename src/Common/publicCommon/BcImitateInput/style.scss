@@ -1,0 +1,48 @@
+@import 'Common/assets/style/px2rem.scss';
+.imitate-input{
+    display: flex;
+    align-items: center;
+    font-size:px2rem(16);
+    border: px2rem(1) solid #999999;
+    border-right: 0;
+    border-radius: px2rem(4) 0 0 px2rem(4) !important;
+    user-select:text;
+    -webkit-user-select:text;
+    .selected::after{
+        content:'';
+        display: block;
+        width:1px;
+        height:16px;
+        animation: 1s steps(1, start) 0s normal none infinite running blink;
+    }
+}
+.yes::after{
+    content:'';
+    display: block;
+    width:1px;
+    height:16px;
+    animation: 1s steps(1, start) 0s normal none infinite running blink;
+}
+.not:empty::before{
+    content:'';
+    display: block;
+    width:1px;
+    height:16px;
+    animation: 1s steps(1, start) 0s normal none infinite running blink;
+}
+.not:empty::after{
+    content: attr(placeholder);
+    color: #999999;
+    font-size:px2rem(16);
+}
+@keyframes blink {
+ 0%{
+   background-color: white;
+ }
+ 50% {
+   background-color: #000000;
+ }
+ 100% {
+   background-color: white;
+ }
+}

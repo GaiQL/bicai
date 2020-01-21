@@ -9,14 +9,15 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const getClientEnvironment = require('../env');
-const paths = require('../paths');
+const createPaths = require('../paths');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const rootDir = path.dirname(__dirname);
+const rootDir = path.dirname(path.dirname(__dirname));
 const Config = require('../index');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const cacheGroups = require('./cacheGruops.js');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -98,6 +99,10 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
 module.exports = ( bankId ) => {
+
+  let paths = createPaths( bankId );
+  console.log( paths.appBuild );
+
   return {
     mode: 'development',
     // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
@@ -117,12 +122,13 @@ module.exports = ( bankId ) => {
       // require.resolve('webpack-dev-server/client') + '?/',
       // require.resolve('webpack/hot/dev-server'),
       require.resolve('react-dev-utils/webpackHotDevClient'),
-      `${paths(bankId).appSrc}/index.js`
+      `${paths.appSrc}/index.js`
       // We include the app code last so that if there is a runtime error during
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
     ],
     output: {
+      path: paths.appBuild,
       // Add /* filename */ comments to generated require()s in the output.
       pathinfo: true,
       // This does not produce a real file. It's just the virtual path that is
@@ -132,7 +138,7 @@ module.exports = ( bankId ) => {
       // There are also additional JS chunk files if you use code splitting.
       chunkFilename: 'static/js/[name].chunk.js',
       // This is the URL that app is served from. We use "/" in development.
-      publicPath: publicPath,
+      publicPath: `/${paths.appFilePath}/`,
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: info =>
         path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
@@ -144,6 +150,7 @@ module.exports = ( bankId ) => {
       splitChunks: {
         chunks: 'all',
         name: false,
+        cacheGroups
       },
       // Keep the runtime chunk seperated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
@@ -186,7 +193,7 @@ module.exports = ( bankId ) => {
         // Make sure your source files are compiled, as they will not be processed in any way.
         // new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
         new TsconfigPathsPlugin({
-          configFile: paths(bankId).appTsConfig
+          configFile: paths.appTsConfig
         })
       ],
     },
@@ -203,8 +210,8 @@ module.exports = ( bankId ) => {
             },
             {
                 test: /\.js$/,
-                include: paths(bankId).appNodeModules,
-                exclude: paths(bankId).jsExclude,
+                include: paths.appNodeModules,
+                exclude: paths.jsExclude,
                 use: [
                     'cache-loader',
                     {
@@ -219,7 +226,7 @@ module.exports = ( bankId ) => {
             },
             {
                 test: /\.(tsx|ts|js|jsx)$/,
-                include: paths(bankId).src,
+                include: paths.src,
                 loader: 'awesome-typescript-loader',
                 options: {
                     useCache: true,
@@ -235,7 +242,7 @@ module.exports = ( bankId ) => {
             },
             {
                 test: /\.(scss|css)$/,
-                include: paths(bankId).src,
+                include: paths.src,
                 use: [
                     'style-loader',
                     ...cssloader
@@ -243,8 +250,8 @@ module.exports = ( bankId ) => {
             },
             {
                 test: /\.(scss|css)$/,
-                include: paths(bankId).appNodeModules,
-                exclude: paths(bankId).src,
+                include: paths.appNodeModules,
+                exclude: paths.src,
                 use: [
                     MiniCssExtractPlugin.loader,
                     ...cssloader
@@ -262,15 +269,15 @@ module.exports = ( bankId ) => {
     },
     plugins: [
       // Generates an `index.html` file with the <script> injected.
-      new HtmlWebpackPlugin({
-        inject: true,
-        template: paths(bankId).appHtml,
-      }),
+      // new HtmlWebpackPlugin({
+      //   inject: true,
+      //   template: paths.appHtml,
+      // }),
       // Makes some environment variables available in index.html.
       // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
       // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
       // In development, this will be an empty string.
-      new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
+      // new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
       // Makes some environment variables available to the JS code, for example:
       // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
       new webpack.DefinePlugin(env.stringified),

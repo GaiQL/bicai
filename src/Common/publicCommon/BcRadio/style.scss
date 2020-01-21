@@ -1,0 +1,23 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.agreement{
+    // margin: px2rem(36) px2rem(15) 0;
+    margin-right: px2rem(17);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-top:px2rem(2);
+    // position: relative;
+    // top: px2rem(2);
+    .checked{
+        color: #508CEE;
+        font-size: px2rem(16);
+    }
+    .no-check{
+        width: px2rem(14);
+        height: px2rem(14);
+        border: px2rem(1) solid #999999;
+        border-radius: 50%;
+        
+    }
+}

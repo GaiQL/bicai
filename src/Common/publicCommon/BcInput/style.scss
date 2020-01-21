@@ -1,0 +1,33 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.am-input-error-extra{
+    display: none;
+}
+
+.BcInput {
+    width: 100%;
+    background: #fff;
+    .am-list-line{
+        .am-input-label{
+            width: 0;
+            margin-right: 0;
+        }
+    }
+    .BcInput-item {
+        height: auto;
+        margin-left: px2rem(15);
+        padding-right: px2rem(15);
+        border-bottom: 1px solid #ddd;
+        .BcInput-item-tit {
+            height: px2rem(16);
+            line-height: px2rem(16);
+            padding-top: px2rem(9);
+            color: #333333;
+        }
+        .BcInput-item-input{
+            min-height: 0;
+            height: 30px;
+            margin-top: px2rem(6);
+        }
+    }
+}

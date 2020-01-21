@@ -1,0 +1,174 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.am-picker-popup-item-active {
+    background: #FFFFFF;
+}
+
+.am-picker-popup-header .am-picker-popup-header-right {
+    color: #508CEE;
+}
+
+.am-picker-popup-body {
+    overflow: hidden;
+}
+
+.deposit-detail {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    .header {
+        width: 100%;
+        height: px2rem(40);
+        background: #FFFFFF;
+        border-bottom: px2rem(1) solid #DDDDDD;
+
+        .headers-barers {
+            
+            width: 100%;
+            height: px2rem(30);
+            // display: flex;
+            // align-items: center;
+            // justify-content: flex-start;
+            position: relative;
+            padding: px2rem(4) 0;
+            border-top: 1px solid #ddd;
+            background: #fff;
+
+            .headers-bar-backer {
+                font-size: px2rem(18);
+                position: absolute;
+                left: px2rem(15);
+                z-index: 999;
+                top: px2rem(10);
+            }
+
+            .tard-active {
+                float: left;
+                color: #333333;
+                font-size: px2rem(18);
+                margin-left: px2rem(75);
+                margin-top: px2rem(6);
+            }
+
+            .tard-actived {
+                float: left;
+                color: #508CEE;
+                position: relative;
+                font-size: px2rem(18);
+                margin-left: px2rem(75);
+                margin-top: px2rem(6);
+            }
+
+            .tard-actived::after {
+                content: '';
+                width: px2rem(24);
+                height: px2rem(2);
+                background: #508CEE;
+                border-radius: px2rem(1);
+                position: absolute;
+                bottom: px2rem(-34);
+                left: 0;
+                right: px2rem(-5);
+                top: 0;
+                margin: auto;
+            }
+        }
+    }
+
+    .bg-color {
+        background: url(~Common/assets/images/depositBg.jpg) no-repeat;
+        background-size: contain;
+    }
+
+    .border-line{
+        border-bottom: px2rem(1) solid #DDDDDD !important;
+    }
+    .screen-month {
+        width: 100%;
+        height: px2rem(40);
+        display: flex;
+        background: #F5F5F5;
+        li {
+            width: 28%;
+            height: px2rem(40);
+            line-height: px2rem(40);
+            font-size: px2rem(14);
+            font-family: PingFangSC-Regular;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            text-align: center;
+        }
+      
+        .screen-icon {
+            width: 16%;
+            background: url(~Common/assets/images/icon_screen.png) no-repeat center center;
+            background-size: px2rem(20);
+        }
+        .screen-icon-selected {
+            width: 16%;
+            background: url(~Common/assets/images/icon_screen_selected.png) no-repeat center center;
+            background-size: px2rem(20);
+        }
+        .current {
+            color: #508CEE;
+            position: relative;
+        }
+
+        .current::after {
+            content: '';
+            width: px2rem(24);
+            height: px2rem(2);
+            background: #508CEE;
+            border-radius: px2rem(1);
+            position: absolute;
+            bottom: px2rem(-34);
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+        }
+    }
+
+    .screen-date {
+        // border-top: px2rem(1) solid #DDDDDD;
+        border-bottom: px2rem(1) solid #DDDDDD;
+        height: px2rem(40);
+        display: flex;
+
+        li {
+            width: 50%;
+            height: px2rem(40);
+            line-height: px2rem(40);
+            text-align: center;
+            font-size: px2rem(15);
+            font-family: PingFangSC-Regular;
+            font-weight: 400;
+            color: rgba(102, 102, 102, 1);
+
+            i {
+                margin-left: px2rem(5);
+                display: inline-block;
+                width: o;
+                height: 0;
+                border: transparent solid 4px;
+                border-top: #717171 solid 4px;
+            }
+
+            .arrow {
+                transition: transform .2s ease-in;
+                transform: rotate(180deg);
+                transform-origin: 50% 25%;
+            }
+        }
+
+        li:first-child {
+            border-right: px2rem(1) solid #DDDDDD;
+        }
+    }
+
+}
+.none-opacity { 
+    position: absolute;
+    z-index: -1111;
+    opacity: 0;
+}

@@ -1,0 +1,222 @@
+@import 'Common/assets/style/px2rem.scss';
+.bc-face {
+  // .pg-video {
+  //   //display: none;
+  // }
+  background: #fff;
+  overflow-y: scroll;
+  #inputVideo1 {
+    display: none;
+  }
+  .canvas {
+    display: none;
+  }
+  // .canvas{
+  //   //width: 200px;
+  //   //height:1000px;
+  //   //display: none;
+  // }
+  .labelVideo {
+    margin: px2rem(6) auto;
+    display: block;
+    text-align: center;
+    background: #508cee;
+    color: #fff;
+    font-size: px2rem(16);
+    width: px2rem(345);
+    height: px2rem(42);
+    line-height: px2rem(42);
+  }
+  .top {
+    width: 100%;
+    // background: #dedede;
+    //height: p;
+    text-align: center;
+    img {
+      margin-top: px2rem(23);
+      width: px2rem(281);
+      height: px2rem(281);
+    }
+  }
+}
+.UpdateIdCard {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  .labelVideo {
+    //margin: px2rem(40) auto;
+    display: block;
+    text-align: center;
+    background: #508cee;
+    color: #fff;
+    font-size: px2rem(16);
+    width: px2rem(345);
+    height: px2rem(42);
+    line-height: px2rem(42);
+  }
+  .UpdateIdCard-img {
+    width: 100%;
+    text-align: center;
+  }
+  .UpdateIdCard-tit {
+    color: #333333;
+    text-align: center;
+    font-size: px2rem(14);
+    padding: px2rem(15) 0;
+  }
+  .UpdateIdCard-upload {
+    width: px2rem(241);
+    height: px2rem(143);
+    margin: 0 auto;
+    position: relative;
+
+    .UpdateIdCard-bg {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .UpdateIdCard-camera {
+      width: px2rem(58);
+      height: px2rem(58);
+
+      input {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  .UpdateIdCard-tip {
+    color: #999999;
+    font-size: px2rem(14);
+    padding: px2rem(7) 0 px2rem(15) 0;
+  }
+
+  .UpdateIdCard-info {
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    background: #fff;
+    margin-top: px2rem(12);
+    margin-bottom: px2rem(40);
+
+    > div {
+      margin-left: px2rem(15);
+      padding-right: px2rem(15);
+      border-bottom: 1px solid #dddddd;
+      height: px2rem(44);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      > div {
+        width: 100%;
+      }
+
+      .am-list-line {
+        padding-right: 0;
+      }
+
+      .am-list-item,
+      .am-input-control input {
+        text-align: right;
+      }
+
+      span {
+        font-size: px2rem(16);
+        color: #333333;
+
+        &:last-child {
+          color: #666666;
+          display: flex;
+          justify-content: flex-end;
+          width: 50%;
+          align-items: center;
+
+          div {
+            .am-list-line {
+              width: 100%;
+
+              .am-list-extra {
+                width: 100%;
+                padding: 0;
+                text-align: center;
+                flex-basis: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        border: 0;
+      }
+    }
+  }
+
+  .UpdateIdCard-confirm {
+    padding-top: px2rem(36);
+    padding-bottom: px2rem(31);
+  }
+}
+.faceBar {
+  width: 100%;
+  height: px2rem(26);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin-top: px2rem(26);
+    height: px2rem(26);
+    font-size: 16px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: px2rem(26);
+  }
+}
+.faceContent {
+  margin-top: px2rem(16);
+  text-align: center;
+  color: #666666;
+  width: 100%;
+  height: 112px;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(102, 102, 102, 1);
+  line-height: px2rem(24);
+  overflow: hidden;
+  p {
+    width: 100%;
+    margin-left:px2rem(100);
+    text-align: left;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+  }
+  span {
+    color: #f4333c;
+    font-size: 14px;
+  }
+}
+.faceConentLook {
+  margin-right: px2rem(15);
+  margin-top: px2rem(36);
+  font-size: 14px;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(80, 140, 238, 1);
+  line-height: 28px;
+  text-align: end;
+}

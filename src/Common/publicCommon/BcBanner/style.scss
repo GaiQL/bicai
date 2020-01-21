@@ -1,0 +1,19 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.activity-img{
+    margin: px2rem(20) px2rem(15) px2rem(53);
+    li{
+        margin-top:px2rem(15);
+        height: px2rem(80);
+        background: #ccc;
+        img{
+            width:100%;
+            height:px2rem(80);
+        }
+    }
+}
+   
+
+
+
+ 

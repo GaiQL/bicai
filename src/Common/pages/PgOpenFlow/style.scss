@@ -1,0 +1,221 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.openFlow {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background: #fff;
+    .openFlow-card-bg {
+        height: px2rem(173);
+        padding: 0 px2rem(15);
+        display: flex;
+        align-items: flex-end;
+        background: url('~Common/assets/images/cardBg.png');
+        background-size: cover;
+
+        .openFlow-card {
+            width: 100%;
+            height: px2rem(130);
+            border-radius: px2rem(11);
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            .openFlow-card-bankLogo {
+                width: px2rem(28);
+                height: px2rem(28);
+                position: absolute;
+                top: px2rem(22);
+                left: px2rem(27);
+                background: #fff;
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .openFlow-card-bankName {
+                color: #FFFFFF;
+                font-size: px2rem(16);
+                position: absolute;
+                top: px2rem(25);
+                left: px2rem(63);
+                padding: px2rem(3) 0;
+
+                span {
+                    font-size: px2rem(12);
+                    padding-left: px2rem(6);
+                }
+            }
+
+            .openFlow-card-bankNum {
+                color: #ffffff;
+                position: absolute;
+                top: px2rem(65);
+                left: px2rem(63);
+                font-size: px2rem(10);
+
+                span {
+                    padding-left: px2rem(24);
+
+                    &:first-child {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .openFlow-product {
+        position: relative;
+        bottom: px2rem(28);
+        background: #ffffff;
+        padding: 0 px2rem(15);
+
+        .openFlow-product-tit {
+            border: 0;
+            width: 100%;
+            text-align: center;
+            font-size: px2rem(20);
+            color: #333333;
+            font-weight: 500;
+            padding-top: px2rem(28);
+        }
+
+        .openFlow-product-text {
+            padding-top: px2rem(20);
+            line-height: px2rem(20);
+            font-size: px2rem(14);
+        }
+
+        .openFlow-product-icon {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: px2rem(33);
+
+            p {
+                height: px2rem(44);
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                width: 33%;
+                border-right: 1px solid #DDDDDD;
+
+                &:last-child {
+                    border: 0;
+                }
+
+                i {
+                    width: px2rem(22);
+                    height: px2rem(22);
+                    margin: 0 auto;
+                    display: block;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                span {
+                    font-size: px2rem(12);
+                    color: #333333;
+                    padding-top: px2rem(8);
+                }
+            }
+        }
+    }
+
+    .openFlow-agree {
+        padding: 0 px2rem(15);
+
+        div {
+            width: 100%;
+           // height: px2rem(38);
+            display: flex;
+            justify-content: flex-start;
+            line-height: px2rem(19);
+            i {
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                padding-top: px2rem(2);
+                color: #508CEE;
+
+                img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+
+            p {
+                width: 100%;
+                color: #999999;
+                font-size: px2rem(12);
+                padding-left: px2rem(6);
+                b {
+                    color: #508CEE;
+                    font-weight: 400;
+                    // display: contents
+                }
+            }
+        }
+    }
+
+    .openFlow-confirm {
+        margin-top: px2rem(20) !important;
+    }
+
+    .openFlow-info {
+        width: 100%;
+        text-align: center;
+        padding-top:  px2rem(60);
+        p {
+            i {
+                width: px2rem(16);
+                height: px2rem(16);
+                display: inline-block;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            &:first-child {
+                font-size: px2rem(12);
+                height: px2rem(20);
+                display: flex;
+                align-items: center;
+                padding:  px2rem(3) 0;
+                justify-content: center;
+                span {
+                    padding-left: px2rem(4);
+                }
+            }
+
+            &:last-child {
+                padding:  px2rem(2) 0;
+                font-size: px2rem(10);
+            }
+        }
+    }
+}
+.am-toast-notice {
+    width: 262px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    .am-toast-notice-content{
+        width: 262px;
+        .am-toast-text{
+            background:rgba(0,0,0,0.8);
+        padding-left: 12px;            
+        padding-right: 12px;       
+        font-size: 14px;     
+        }
+    }
+}

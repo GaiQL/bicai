@@ -1,0 +1,80 @@
+@import 'Common/assets/style/px2rem.scss';
+.buy-success{
+    overflow: auto;
+    height: 100%;
+    background: #F5F5F5;
+    .process-box{
+        padding-top: px2rem(26);
+        min-height: px2rem(314);
+        width: 100%;
+        background: #FFFFFF;
+        .item-step{
+            padding-left: px2rem(16);
+            position: relative;
+            padding-bottom: px2rem(32);
+            display: flex;
+            .step-detail{
+                margin-top: px2rem(-2);
+                flex: 1;
+                padding: 0 px2rem(19) 0 px2rem(12);
+                .default{
+                    font-size: px2rem(20);
+                    font-family:PingFangSC-Regular;
+                    line-height: px2rem(32);
+                    font-weight:400;
+                }
+                .not-complate{
+                    color: #333333;
+                }
+                .complate{
+                    color:rgba(80,140,238,1);
+                }
+                .specific-info{
+                    font-size: px2rem(16);
+                    font-family:PingFangSC-Regular;
+                    color:rgba(153,153,153,1);
+                    line-height: px2rem(26);
+                }
+            }
+            .line-top{
+                position: absolute;
+                left: px2rem(28);
+                top: px2rem(24);
+                height: 40%;
+                border-left: 4px solid #CCCCCC;
+                overflow: hidden;
+            }
+            .line-bottom{
+                position: absolute;
+                left: px2rem(28);
+                top: 60%;
+                height: 50%;
+                border-left: 4px solid #CCCCCC;
+                overflow: hidden;
+            }
+            .buyS-active{
+                border-color: #508CEE;
+                z-index: 1;
+            }
+            .current{
+                font-size: px2rem(28);
+                color: #508CEE;
+            }
+        }
+    }
+    // .look-assets{
+    //     // margin-top: px2rem(37) !important;
+    // }
+    .btn-complate{
+        // margin-top: px2rem(24) !important;
+        background: #FFFFFF !important;
+        border: px2rem(1) solid #508CEE !important;
+        color: #508CEE !important;
+    }
+}
+.buySuccessAssets{
+    margin-top: px2rem(37);
+}
+.buySuccessComplate{
+    margin-top: px2rem(24);
+}

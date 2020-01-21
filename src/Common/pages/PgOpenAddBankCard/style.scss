@@ -1,0 +1,97 @@
+@import "Common/assets/style/px2rem.scss";
+
+.addNewBank {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  overflow: hidden;
+
+  .addNewBank-tit {
+    display: flex;
+    justify-content: space-between;
+    padding: px2rem(15) px2rem(15) px2rem(8) px2rem(15);
+
+    span {
+      color: #999999;
+      font-size: px2rem(14);
+    }
+  }
+
+  .addNewBank-card {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+
+    > div {
+      border-bottom: 1px solid #dddddd;
+      &:last-child {
+        border: 0;
+      }
+      .bank-tit {
+        color: #333333;
+        font-size: px2rem(10);
+        padding-top: px2rem(7);
+        position: absolute;
+        line-height: px2rem(16);
+      }
+      .addNewBank-card-input {
+        display: flex;
+        justify-content: space-between;
+        // padding-bottom: px2rem(12);
+        padding-top: px2rem(21);
+        align-items: flex-start;
+        span {
+          font-size: px2rem(16);
+          color: #666666;
+          &:nth-child(2) {
+            color: #508cee;
+          }
+        }
+        input {
+          font-size: px2rem(14);
+        }
+      }
+      .err-tit {
+        color: #f4333c;
+        padding: 0;
+        padding-bottom: px2rem(8);
+      }
+    }
+  }
+  .AddNewBank-confirm {
+    margin-top: px2rem(47);
+  }
+  .addNewBank-check-bank {
+    width: 100%;
+    text-align: right;
+    margin-top: px2rem(11);
+    span {
+      padding: 0 px2rem(15);
+      color: #508cee;
+      font-size: px2rem(14);
+    }
+  }
+  .border {
+    margin-left: px2rem(15);
+    .addNewBank-card-bank {
+      margin-left: 0;
+    }
+  }
+}
+.am-list-item {
+  border: 0;
+}
+.am-list-item {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.am-list-item.am-input-item {
+  padding: 0;
+}
+
+.am-list-line:after {
+  display: none !important;
+}

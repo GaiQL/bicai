@@ -1,0 +1,43 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.btn-box {
+  padding: 0 px2rem(15);
+
+  .am-button::before {
+    display: none;
+  }
+
+  .btn {
+    width: 100%;
+    height: px2rem(44);
+    color: #fff;
+    border-radius: px2rem(2) !important;
+    outline: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box; /* Firefox */
+    -webkit-box-sizing: border-box; /* Safari */
+    font-size: 16px;
+    line-height: px2rem(44);
+    padding: 0 px2rem(15);
+    @include themeify {
+      background: themed('btn-bg-color');
+    }
+  }
+}
+
+.am-button-disabled {
+  background: #CCCCCC !important;
+  opacity: 1 !important;
+}
+
+.ant-btn-dashed {
+  background: #fff !important;
+  color: #508CEE !important;
+  border: 1px solid #508CEE !important;
+  margin-top: px2rem(24) !important;
+}
+
+html:not([data-scale]) .am-button::before {
+  border-radius: px2rem(2) !important;
+}

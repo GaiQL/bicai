@@ -1,0 +1,162 @@
+@import "Common/assets/style/px2rem.scss";
+
+.addNewBank {
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  overflow: hidden;
+  .addNewBank-tit {
+    display: flex;
+    justify-content: space-between;
+    padding: px2rem(15) px2rem(15) px2rem(8) px2rem(15);
+
+    span {
+      color: #999999;
+      font-size: px2rem(14);
+    }
+  }
+
+  .addNewBank-card {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+
+    > div {
+      border-bottom: 1px solid #dddddd;
+      &:last-child {
+        border: 0;
+      }
+      .bank-tit {
+        color: #333333;
+        font-size: px2rem(10);
+        padding-top: px2rem(7);
+        position: absolute;
+      }
+      .addNewBank-card-input {
+        display: flex;
+        justify-content: space-between;
+        // padding-bottom: px2rem(12);
+        padding-top: px2rem(26);
+        align-items: flex-start;
+        span {
+          font-size: px2rem(16);
+          color: #666666;
+          &:nth-child(2) {
+            color: #508cee;
+          }
+        }
+        input {
+          font-size: px2rem(14);
+        }
+      }
+      .err-tit {
+        color: #f4333c;
+        padding: 0;
+        padding-bottom: px2rem(8);
+      }
+    }
+  }
+  .AddNewBank-confirm {
+    margin-top: px2rem(47);
+  }
+  .addNewBank-check-bank {
+    width: 100%;
+    text-align: right;
+    margin-top: px2rem(11);
+    span {
+      padding: 0 px2rem(15);
+      color: #508cee;
+      font-size: px2rem(14);
+    }
+  }
+  .border {
+    margin-left: px2rem(15);
+    .addNewBank-card-bank {
+      margin-left: 0;
+    }
+  }
+}
+.am-list-item {
+  border: 0;
+}
+.am-list-item {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.am-list-item.am-input-item {
+  padding: 0;
+}
+
+.am-list-line:after {
+  display: none !important;
+}
+.phoneInput {
+  width: 100%;
+  height: px2rem(92);
+  padding: 0 px2rem(15);
+}
+.phoneTitle {
+  height: px2rem(16);
+  padding-top: px2rem(8);
+}
+.phoneNum {
+  height: px2rem(26);
+  line-height: px2rem(26);
+  font-size: px2rem(16);
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  margin-top: px2rem(6);
+}
+.phoneCont {
+  height: px2rem(16);
+  font-size: px2rem(10);
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: px2rem(16);
+  background: rgba(255, 255, 255, 1);
+  margin-top: px2rem(12);
+  span {
+    color: #508cee;
+  }
+}
+.commonInput {
+  width: 100%;
+  height: px2rem(65);
+  margin-top: px2rem(13);
+  padding-left: px2rem(15);
+
+  .commonInput-title {
+    height: px2rem(16);
+    padding-top: px2rem(8);
+  }
+  .commonInput-num {
+    height: px2rem(26);
+    line-height: px2rem(26);
+    font-size: px2rem(16);
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    margin-top: px2rem(6);
+  }
+}
+.policy {
+  width: 100%;
+  height: px2rem(44);
+  background: #ffffff;
+  line-height: px2rem(44);
+  p {
+    width: px2rem(336);
+    height: px2rem(44);
+    font-size: px2rem(14);
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(244, 170, 57, 1);
+    line-height: px2rem(44);
+    padding-left: px2rem(15);
+  }
+}

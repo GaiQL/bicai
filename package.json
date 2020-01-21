@@ -12,6 +12,7 @@
     "docs": "node scripts/docs"
   },
   "dependencies": {
+    "bignumber.js": "^9.0.0",
     "fastclick": "^1.0.6",
     "mobx": "5.9.0",
     "mobx-react": "5.4.3",

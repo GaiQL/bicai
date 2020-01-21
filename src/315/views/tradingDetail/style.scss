@@ -1,0 +1,105 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.am-picker-popup-item-active {
+  background: #FFFFFF;
+}
+
+.am-picker-popup-header .am-picker-popup-header-right {
+  color: #508CEE;
+}
+
+.am-picker-popup-body {
+  overflow: hidden;
+}
+
+.details-list {
+  overflow: hidden;
+  h5 {
+    height: px2rem(42);
+    line-height: px2rem(42);
+    padding-left: px2rem(15);
+    font-size: px2rem(16);
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    background: #F5F5F5;
+  }
+
+  ul {
+    border-top: px2rem(1) solid #DDDDDD;
+    border-bottom: px2rem(1) solid #DDDDDD;
+    overflow: hidden;
+    background: #FFFFFF;
+
+    li {
+      // height: px2rem(76);
+      margin-left: px2rem(15);
+      border-bottom: px2rem(1) solid #DDDDDD;
+
+      p {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // padding: px2rem(12) px2rem(15) 0 0;
+        padding-top:px2rem(9);
+        padding-right:px2rem(15);
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #666666;
+      }
+      p:first-child{
+        padding-top:px2rem(12);
+      }
+
+      p:last-child {
+        font-size: px2rem(12);
+        padding-top: px2rem(9);
+        padding-bottom: px2rem(12);
+      }
+
+      .title {
+        font-size:px2rem(12);
+        font-family:'PingFangSC';
+        color:#333333;
+        line-height:px2rem(19);
+      }
+      .describe{
+        height:px2rem(19);
+        font-size:px2rem(12);
+        font-family:PingFangSC;
+        color:#666666;
+        line-height:px2rem(19);
+      }
+      .money {
+        font-size: px2rem(15);
+      }
+
+      .add-money {
+        color: #F4333C;
+        font-size: px2rem(16);
+      }
+
+      .reduce-money {
+        font-size: px2rem(16);
+        line-height: px2rem(26);
+        color: rgba(20, 183, 150, 1);
+      }
+
+      .date {
+        height: px2rem(19);
+        font-size: px2rem(12);
+        color:#666666;
+        line-height: px2rem(19);
+      }
+
+      .desc {
+        font-size: px2rem(14);
+        color: rgba(102, 102, 102, 1);
+      }
+    }
+
+    li:last-child {
+      border: none;
+    }
+  }
+}

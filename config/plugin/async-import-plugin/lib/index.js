@@ -1,3 +1,27 @@
+/**
+
+    import PGheihei from 'Common/Pgtest';
+    import './style.scss';
+    
+    class heihei extends PGheihei{
+    } 
+    
+    export default heihei;   
+
+    --------------------------------------------------
+
+    import './style.scss';
+  
+    export default (async()=>{
+        
+        const PGheihei = (await import('Common/Pgtest')).default; // webpackChunkName: "Common_Pgtest"
+        class heihei extends PGheihei{
+        }
+        return heihei
+        
+    })();   
+
+**/
 const ts = require("typescript");
 
 let commonImportNodes = [];

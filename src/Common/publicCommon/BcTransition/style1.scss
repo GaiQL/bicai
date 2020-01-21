@@ -1,0 +1,84 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.banklonding {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  text-align: center;
+
+  .londingBox {
+    width: 100%;
+    height: 100%;
+  }
+  .logo{
+    width: 100%;
+    height: px2rem(66);
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    margin-left: -50%;
+    margin-bottom: -33px
+  }
+
+  .orgLogo {
+    height: px2rem(36);
+    width: px2rem(36);
+    margin-right: px2rem(8);
+    vertical-align: top;
+
+  }
+
+  .orgName {
+    vertical-align: top;
+    display: inline-block;
+    height: px2rem(36);
+    line-height: px2rem(36);
+    font-size: px2rem(22);
+    color: #333333;
+  }
+
+  .londingText {
+    font-size: px2rem(12);
+    color: #858E9F;
+    padding-top: px2rem(12);
+
+  }
+
+  .goBank {
+    margin-bottom: px2rem(4);
+    font-size: px2rem(12);
+    font-family: PingFangSC;
+    font-weight: 400;
+    color: rgba(133, 142, 159, 1);
+    line-height: px2rem(17);
+  }
+
+  .lodingCont {
+    width:100%;
+    height: 34px;
+    text-align: center;
+    font-size: px2rem(12);
+    font-family: PingFangSC;
+    font-weight: 400;
+    color: rgba(133, 142, 159, 1);
+    line-height: px2rem(17);
+    margin-top: px2rem(4)
+  }
+  .logdingBottom{
+    color:rgba(133,142,159,1);
+    font-family:PingFangSC;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    margin-left: -50%;
+    font-size: px2rem(12);
+    span{
+      line-height: 1.5
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@import 'Common/assets/style/px2rem.scss';
+.is-border-top {
+  border-top: none !important;
+}
+.bank-detail {
+    border-top: 1px solid #DDDDDD;
+    margin-left: px2rem(15);
+    padding: px2rem(11) px2rem(15) px2rem(11) 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: px2rem(14);
+    color: #333333;
+    .bankinfo-addbank{
+      line-height: px2rem(22);
+      color: #508CEE;
+      svg{
+       position: relative;
+       display: inline-block;
+       top: px2rem(1);
+       margin-left: px2rem(4);
+      }
+    
+    }
+    .detail-left{
+      width: px2rem(60);
+      margin-right: px2rem(6);
+      line-height: px2rem(22);
+    }
+    .detail-content{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .bank-name{
+        color: #333333;
+        font-size: px2rem(14);
+        line-height: px2rem(22);
+      }
+      p{
+        font-family:PingFangSC-Regular;
+        font-weight:400;
+        font-size: px2rem(14);
+      }
+      p.disabled{
+        color: #999999 !important;
+      }
+      p.tip{
+        padding-top: px2rem(2);
+        line-height: px2rem(22);
+        color:rgba(102,102,102,1);
+        em {
+          color:#666666;
+          font-size: px2rem(14);
+          b{
+            font-weight: 300;
+            color: #508CEE;
+          }
+        }
+        span {
+          b{
+            color: #508CEE !important;
+            font-weight: 400;
+          }
+          em{
+            color: #999999 ;
+          }
+        }
+        .click-words{
+          color: #508CEE;
+          font-weight: 300;
+        }
+      }
+    }
+  }

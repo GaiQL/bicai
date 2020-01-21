@@ -1,0 +1,654 @@
+@import "Common/assets/style/px2rem.scss";
+
+.buy-box {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  background: #f5f5f5;
+
+  .buy-box-info-title {
+    width: 100%;
+    height: px2rem(44);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+    padding-left: px2rem(15);
+
+    .info-logo {
+      width: px2rem(26);
+      height: px2rem(26);
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .info-text {
+      width: px2rem(260);
+      padding-left: px2rem(8);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: px2rem(14);
+    }
+  }
+
+  .buy-box-info-rules {
+    width: 100%;
+    height: px2rem(44);
+    display: flex;
+    align-items: center;
+    padding-left: px2rem(15);
+
+    span {
+      font-size: px2rem(12);
+      color: #999999;
+      background: #f5f5f5;
+    }
+  }
+
+  .two-card-box {
+    margin-top: px2rem(12);
+    width: 100%;
+    height: px2rem(70);
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: px2rem(15);
+
+    .two-card-box-logo {
+      width: px2rem(30);
+      height: px2rem(30);
+      // background: lightcoral;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .two-card-box-wrap {
+      flex: 1;
+      padding-left: px2rem(16);
+      // display: flex;
+      .account {
+        top: px2rem(25);
+        left: px2rem(67);
+        height: px2rem(19);
+        font-size: px2rem(14);
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #999999;
+        padding-top: px2rem(3);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .balance-contant {
+          font-size: px2rem(14);
+          display: block;
+          height: px2rem(19);
+          line-height: px2rem(19);
+          padding: 0!important;
+          margin-right: px2rem(5);
+        }
+        .refresh-loding {
+          width: px2rem(19);
+          height: px2rem(18);
+          position: relative;
+          padding: 0!important;
+          // background: #ccc;
+          img{
+            width: 16px;
+            height: 17px;
+            // background: red;
+            z-index: 9;
+            // width: 100%;
+            // height: 100%;
+            display: block;
+            position: absolute;
+            transform-origin: center center;
+            // animation: refresh 1s linear infinite;
+            // left: px2rem(-5);
+            // top: px2rem(-10);
+            top: 0;
+            left: px2rem(1);
+          }
+        }
+      }
+      
+      @keyframes refresh {
+        0%{
+          transform: rotateZ(0deg);
+        }
+        100% {
+          transform: rotateZ(360deg);
+        }
+      }
+      span {
+        font-size: px2rem(16);
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+      }
+
+      span:first-child {
+        padding-right: px2rem(12);
+        padding-bottom: px2rem(2);
+      }
+    }
+  }
+
+
+  .buy-info {
+    display: flex;
+    height: px2rem(80);
+    background: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+
+    .left {
+      display: flex;
+      align-items: center;
+      padding-left: px2rem(15);
+
+      img {
+        max-width: 50px;
+        max-height: 50px;
+      }
+
+      p {
+        line-height: px2rem(22);
+        padding-left: px2rem(16);
+        font-weight: 400;
+        font-family: PingFangSC-Regular;
+      }
+
+      p:first-child {
+        font-size: px2rem(16);
+        color: rgba(51, 51, 51, 1);
+      }
+
+      p:last-child {
+        font-size: px2rem(14);
+        color: rgba(102, 102, 102, 1);
+      }
+    }
+
+    .right {
+      font-size: px2rem(14);
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(102, 102, 102, 1);
+      padding-right: px2rem(15);
+
+      p {
+        line-height: px2rem(20);
+        text-align: right;
+      }
+    }
+  }
+
+  .buy-money {
+    // margin-top: px2rem(12);
+    background: #ffffff;
+
+    .input-box {
+      width: 100%;
+      height: px2rem(108);
+
+      .buy-words {
+        padding: px2rem(24) 0 px2rem(12) px2rem(15);
+        font-size: px2rem(14);
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #666666;
+        line-height: px2rem(22);
+      }
+    }
+
+    .err-info {
+      height: px2rem(33);
+      line-height: px2rem(33);
+      background: rgba(255, 234, 216, 1);
+      position: relative;
+
+      span {
+        display: block;
+        width: 0;
+        height: 0;
+        border: transparent solid 4px;
+        border-top: #ffead8 solid 4px;
+        position: absolute;
+        left: px2rem(15);
+        top: px2rem(-8);
+        transform: rotate(180deg);
+        overflow: hidden;
+      }
+
+      div {
+        padding-left: px2rem(15);
+        font-size: px2rem(14);
+        font-family: PingFangSC-Regular;
+        color: rgba(244, 51, 60, 1);
+      }
+    }
+
+    .border {
+      border-top: px2rem(1) solid #dddddd;
+    }
+
+    .buy-bank {
+      margin-left: px2rem(15);
+      height: px2rem(70);
+      line-height: px2rem(46);
+      // display: flex;
+      justify-content: flex-start;
+      position: relative;
+      // align-items: center;
+      .account {
+        // display: flex;
+        // flex-direction: column;
+        // // align-items: center;
+        // justify-content: center;
+        // padding: px2rem(10) 0;
+        height: px2rem(0);
+        position: absolute;
+        top: px2rem(25);
+        left: px2rem(67);
+        font-size: px2rem(14);
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+      }
+
+      span {
+        font-size: px2rem(14);
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+      }
+
+      span:first-child {
+        padding-right: px2rem(12);
+      }
+    }
+  }
+
+  .agreementers {
+    // min-height: px2rem(19);
+    // max-height: px2rem(29);
+    margin: px2rem(36) px2rem(13) 0;
+    display: flex;
+
+    .checked {
+      color: #508cee;
+      font-size: px2rem(16);
+    }
+
+    .no-check {
+      font-size: px2rem(16);
+      color: #333333;
+      // margin-top: px2rem(1);
+      // width: px2rem(14);
+      // height: px2rem(14);
+      // border: px2rem(1) solid #999999;
+      // border-radius: 50%;
+    }
+
+    p {
+      flex: 1;
+      padding-left: px2rem(8);
+      font-size: px2rem(12);
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(153, 153, 153, 1);
+      line-height: px2rem(19);
+      // height: px2rem(19);
+      em {
+        color: #508cee;
+      }
+    }
+  }
+
+  .buy-btn {
+    margin-top: px2rem(12) !important;
+  }
+
+  .mt36px {
+    margin-top: px2rem(36) !important;
+  }
+
+  .pay-type-modal {
+    text-align: center !important;
+    position: relative !important;
+
+    .close-icon {
+      position: absolute;
+      left: px2rem(15);
+      top: px2rem(16);
+      font-size: px2rem(16);
+      color: #999999;
+    }
+  }
+}
+
+.code-modal {
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
+  bottom: px2rem(260);
+  left: 0;
+  height: px2rem(152 + 37);
+  background: white;
+  border-bottom: px2rem(1) solid #dddddd;
+}
+
+.common-modal,
+.code-modal {
+  width: 100%;
+
+  .am-modal-content {
+    padding: 0;
+  }
+
+  .am-modal-transparent,
+  .am-modal-content,
+  .am-modal-body {
+    padding: 0 !important;
+  }
+
+  .am-modal-header {
+    padding: 0;
+    padding: 0 px2rem(15);
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .common-tit {
+    display: flex;
+    font-size: px2rem(16);
+    justify-content: center;
+    align-items: center;
+    height: px2rem(44);
+    position: relative;
+
+    span:last-child {
+      position: absolute;
+      right: 0;
+
+      img {
+        max-width: px2rem(15);
+        max-height: px2rem(15);
+      }
+    }
+  }
+
+  .recharge-content {
+    min-height: px2rem(109);
+
+    .info {
+      font-size: px2rem(14);
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+      line-height: px2rem(19);
+      padding: px2rem(12) 0 0 0;
+    }
+
+    .recharge-content-balance {
+      // text-align: left;
+      font-size: px2rem(12);
+      height: px2rem(24);
+      padding-left: px2rem(10);
+      line-height: px2rem(24);
+      background: rgba(245, 245, 245, 1);
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: px2rem(19);
+      font-size: px2rem(32);
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+
+      .edit-icon {
+        font-size: px2rem(21);
+        color: #508cee;
+        margin-left: 10px;
+      }
+    }
+
+    .btn-box-err {
+      display: flex;
+      margin: 0 px2rem(10) px2rem(32);
+      justify-content: space-between;
+
+      button {
+        width: 47.5%;
+        height: px2rem(44);
+        border: 1px solid #508cee;
+        border-radius: 2px;
+        font-size: px2rem(16);
+      }
+
+      button:first-child {
+        color: #508cee;
+      }
+
+      button:last-child {
+        background: #508cee;
+        color: white;
+      }
+    }
+
+    .confirm-recharge {
+      margin-bottom: px2rem(32);
+    }
+
+    .confirm-recharge-err {
+      margin-bottom: px2rem(32);
+      background: #ccc !important;
+    }
+  }
+
+  .msg-content {
+    min-height: px2rem(110);
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+
+    p {
+      font-size: px2rem(14);
+      color: rgba(51, 51, 51, 1);
+      line-height: px2rem(22);
+      padding: px2rem(12) 0;
+      text-align: center;
+    }
+
+    .code-box {
+      display: flex;
+      justify-content: center;
+      // margin-bottom: px2rem(37);
+      .input {
+        width: px2rem(169);
+        height: px2rem(49);
+        border-radius: px2rem(4) 0 0 px2rem(4) !important;
+        border: 1px solid rgba(153, 153, 153, 1);
+        padding: 0 px2rem(8);
+        border-right: 0;
+      }
+
+      // .code-input{
+      //     width: px2rem(169);
+      //     height: px2rem(49);
+      //     border-radius: 2px;
+      //     border: 1px solid rgba(153,153,153,1);
+      //     padding-left: px2rem(10);
+      // }
+      .seconds {
+        min-width: px2rem(90);
+        // margin-left: px2rem(12);
+        font-size: px2rem(16);
+        text-align: center;
+        line-height: px2rem(50.5);
+        padding: 0 px2rem(8);
+        color: rgba(102, 102, 102, 1);
+        height: px2rem(50.5);
+        border-radius: 0 px2rem(4) px2rem(4) 0;
+        // border: 1px solid rgba(153, 153, 153, 1);
+
+      }
+
+      .isEdit {
+        background: #508CEE;
+        color: #fff;
+      }
+
+      .isSeconds {
+        background: #ddd;
+        color: #666666;
+      }
+    }
+  }
+
+  .status-box {
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    height: px2rem(283);
+
+    img {
+      margin: px2rem(36) 0 px2rem(19);
+    }
+
+    .status-words {
+      font-size: px2rem(18);
+      color: rgba(51, 51, 51, 1);
+      line-height: px2rem(29);
+    }
+
+    .status-details {
+      font-size: px2rem(12);
+      color: rgba(153, 153, 153, 1);
+      line-height: px2rem(19);
+    }
+
+    .status-btn {
+      margin: px2rem(36) 0 px2rem(34) !important;
+    }
+
+    .btn-box {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+
+.prdName {
+  width: px2rem(106);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.done {
+  width: px2rem(17);
+  height: px2rem(17);
+  // border-radius: 50%;
+  display: block;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+}
+
+.done .circle {
+  stroke-miterlimit: 10;
+  // stroke: #508CEE;
+  fill: #508CEE;
+}
+
+.done .check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 0;
+  stroke-width: 3;
+}
+
+.dones {
+  display: block;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  // border: 1px solid;
+}
+
+.dones .hollowCircel {
+  fill: white;
+  stroke: #999999;
+  stroke-width: 1;
+}
+
+.icer {
+  width: px2rem(16);
+  height: px2rem(16);
+  display: inline-block;
+  margin-top: px2rem(2);
+  color: #508CEE;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.info-tip {
+  color: #666666;
+  line-height: px2rem(19);
+  font-size: px2rem(12);
+  padding: px2rem(12) px2rem(15) 0;
+}
+
+.fixed {
+  bottom: 200px;
+}
+
+.editInputRe {
+  display: none !important;
+}
+
+.editicon {
+  display: inline-block;
+  width: px2rem(23);
+  height: px2rem(23);
+  // background: #ccc;
+  margin-left: px2rem(5);
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.rechargeMoney-edit {
+  padding-bottom: px2rem(36);
+}
+
+.info-color {
+  color: red !important;
+}
+
+.additional-cardlist-tip {
+  background: #F5F5F5;
+  font-size: px2rem(12);
+  height: px2rem(24);
+  color: #999999;
+  line-height: px2rem(24);
+}
+.inputcursor {
+  display: inline-block;
+  width: px2rem(1);
+  height: px2rem(27);
+  margin: 0 px2rem(4);
+  background: #108ee9;
+  animation: 1s steps(1, start) 0s normal none infinite running blink;
+}

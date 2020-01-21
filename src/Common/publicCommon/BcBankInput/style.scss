@@ -1,0 +1,15 @@
+.upload {
+  padding-top: 12px;
+  position: relative;
+  text-align: right;
+  input {
+    position: absolute;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+  }
+  .MobileInput input {
+    font-size: px2rem(16);
+  }
+}

@@ -1,0 +1,26 @@
+@import 'Common/assets/style/px2rem.scss';
+.buy-results{
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    section{
+        font-family:PingFangSC-Regular;
+        font-weight:400;
+        padding-top: px2rem(37);
+        text-align: center;
+        .status{
+            padding: px2rem(16) 0 px2rem(8);
+            font-size: px2rem(18);
+            color:rgba(51,51,51,1);
+            line-height: px2rem(29);
+        }
+        .result{
+            margin: auto;
+            padding-bottom: px2rem(19);
+            // width: px2rem(168);
+            font-size: px2rem(12);
+            color:rgba(153,153,153,1);
+            line-height: px2rem(17);
+        }
+    }
+}

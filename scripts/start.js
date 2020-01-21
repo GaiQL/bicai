@@ -32,9 +32,15 @@ const {
   prepareUrls,
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
+const path = require('path');
 const paths = require('../config/paths')(bank);
 const config = require('../config/webpackConfig/webpack.config.dev')(bank);
+const proConfig = require('../config/webpackConfig/webpack.config.prod')(bank);
+const extractConfig = require('../config/webpackConfig/webpack.config.extract')('Common');
+const MultiCompiler = require("webpack/lib/MultiCompiler");
 const createDevServerConfig = require('../config/webpackConfig/webpackDevServer.config');
+const MemoryFileSystem = require("memory-fs");
+const createCommonIndex = require('./createCommonIndex');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
@@ -43,6 +49,8 @@ const isInteractive = process.stdout.isTTY;
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
+
+createCommonIndex();
 
 // Tools like Cloud9 rely on this.
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
@@ -85,6 +93,10 @@ checkBrowsers(paths.appPath, isInteractive)
     const urls = prepareUrls(protocol, HOST, port);
     // Create a webpack compiler that is configured with custom messages.
     const compiler = createCompiler(webpack, config, appName, urls, useYarn);
+    const proCompiler = createCompiler(webpack, proConfig, '315', urls, useYarn);
+    const extractCompiler = createCompiler(webpack, extractConfig, 'common', urls, useYarn);
+    // const proCompiler = webpack( proConfig );
+    // const extractCompiler = webpack( extractConfig );
     // Load proxy config
     const proxySetting = require(paths.appPackageJson).proxy;
     const proxyConfig = prepareProxy(proxySetting, paths.appPublic);
@@ -94,7 +106,20 @@ checkBrowsers(paths.appPath, isInteractive)
       urls.lanUrlForConfig,
       bank
     );
-    const devServer = new WebpackDevServer(compiler, serverConfig);
+
+    const compilers = new MultiCompiler([ extractCompiler,proCompiler ]);
+
+    compilers.hooks.done.tap('compilersDone', stats => {
+
+      console.log( compilers );
+      //let dirList = memory.readdirSync( compilers.outputPath + path.sep + 'common' );
+      // console.log( dirList );
+
+    })
+
+    // const devServer = new WebpackDevServer(compiler, serverConfig);
+    const devServer = new WebpackDevServer(compilers, serverConfig);
+    
     // Launch WebpackDevServer.
     devServer.listen(port, HOST, err => {
       if (err) {
@@ -104,7 +129,7 @@ checkBrowsers(paths.appPath, isInteractive)
         clearConsole();
       }
       console.log(chalk.cyan('Starting the development server...\n'));
-      openBrowser(urls.localUrlForBrowser);
+      openBrowser( urls.localUrlForBrowser + bank + '/' );
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {

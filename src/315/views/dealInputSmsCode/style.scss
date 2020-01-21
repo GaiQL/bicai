@@ -1,0 +1,27 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.securityCode{
+    width: 100%;
+    height: 100%;
+    background: #F5F5F5;
+    .securityCode-info{
+        width: 100%;
+        text-align: center;
+        padding-top:  px2rem(25);
+        padding-bottom:  px2rem(24);
+        background: #fff;
+        p{
+            color: #333333;
+            font-size: px2rem(16);
+            span{
+                color: #508CEE;
+            }
+            &:last-child{
+                padding-top: px2rem(16);
+            }
+        }
+    }
+    .securityCode-confirm{
+        margin-top: px2rem(37)!important;
+    }
+}

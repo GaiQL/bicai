@@ -1,0 +1,45 @@
+@import 'Common/assets/style/px2rem.scss';
+
+
+.ChangePhone {
+    width: 100%;
+    height: 100%;
+    background: #F5F5F5;
+
+    .am-list-line {
+        // border:0!important;
+    }
+
+    .ChangePhone-tip {
+        color: #999999;
+        font-size: px2rem(12);
+        padding: 0 px2rem(15);
+        display: flex;
+        flex-direction: column;
+        margin-top: px2rem(12);
+        line-height: px2rem(18);
+    }
+
+    .ChangePhone-title {
+        color: #FF801A;
+    }
+
+    .ChangePhone-confirm {
+        margin-top: px2rem(36) !important;
+    }
+
+    .ChangePhone-identity {
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        margin-top: px2rem(12);
+    }
+
+    .border {
+        border-bottom: 0 !important;
+    }
+
+}
+
+.BcInput_style .BcInput-item-input .am-list-line .am-input-label-5 {
+    width: 0 !important
+}

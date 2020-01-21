@@ -1,0 +1,45 @@
+@import 'Common/assets/style/px2rem.scss';
+html{
+    touch-action:none;
+ }
+.demoTitle:before,
+.demoTitle:after {
+  border-bottom: none;
+}
+html:not([data-scale]) .am-list-body::before, html:not([data-scale]) .am-list-body::after{
+    height: 0;
+}
+.box{
+    padding-left: px2rem(15);
+    .am-list-item .am-input-label{
+        font-size: px2rem(22);
+    }
+    .fake-input-placeholder{
+        display: flex;
+        align-items:center;
+        font-size: px2rem(22);
+    }
+    .am-list-item .am-input-control .fake-input-container .fake-input{
+        display: flex;
+        align-items:center;
+        font-size: px2rem(24) !important;
+    }
+    .am-list-item .am-input-clear{
+        width: px2rem(18);
+        height: px2rem(18);
+        background-size: px2rem(18) auto;
+        background-position: px2rem(1.5) px2rem(1.5);
+    }
+    .am-list-item .am-input-extra{
+        color: #508CEE;
+        max-height: px2rem(44);
+        min-height: px2rem(44);
+        line-height: px2rem(44);
+    }
+}
+.am-list-item {
+    padding-left: 0!important;
+}
+.am-list-item .am-input-item {
+    padding-left: 0;
+}

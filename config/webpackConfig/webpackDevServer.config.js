@@ -6,13 +6,16 @@ const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMi
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const config = require('./webpack.config.dev');
 const fs = require('fs');
+const MemoryFileSystem = require("memory-fs");
 let paths = require('../paths');
 
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
 module.exports = function(proxy,allowedHost,bankId) {
+
   paths = paths(bankId);
+
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
     // websites from potentially accessing local content through DNS rebinding:
@@ -51,9 +54,10 @@ module.exports = function(proxy,allowedHost,bankId) {
     // for files like `favicon.ico`, `manifest.json`, and libraries that are
     // for some reason broken when imported through Webpack. If you just want to
     // use an image, put it in `src` and `import` it from JavaScript instead.
-    contentBase: paths.appPublic,
+    // contentBase: paths.appPublic,
+    contentBase: false,
     // By default files from `contentBase` will not trigger a page reload.
-    watchContentBase: true,
+    watchContentBase: false,
     // Enable hot reloading server. It will provide /sockjs-node/ endpoint
     // for the WebpackDevServer client so it can learn when the files were
     // updated. The WebpackDevServer client is included as an entry point
@@ -62,7 +66,7 @@ module.exports = function(proxy,allowedHost,bankId) {
     hot: true,
     // It is important to tell WebpackDevServer to use the same "root" path
     // as we specified in the config. In development, we always serve from /.
-    publicPath: config(bankId).output.publicPath,
+    publicPath: '/',
     // WebpackDevServer is noisy by default so we emit custom message instead
     // by listening to the compiler events with `compiler.hooks[...].tap` calls above.
     quiet: true,
@@ -77,14 +81,20 @@ module.exports = function(proxy,allowedHost,bankId) {
     https: protocol === 'https',
     host,
     overlay: false,
-    historyApiFallback: {
-      // Paths with dots should still use the history fallback.
-      // See https://github.com/facebook/create-react-app/issues/387.
-      disableDotRule: true,
-    },
+    historyApiFallback: false,
+    // {
+    //   // Paths with dots should still use the history fallback.
+    //   // See https://github.com/facebook/create-react-app/issues/387.
+    //   disableDotRule: true,
+    // }
     public: allowedHost,
     proxy,
     before(app, server) {
+      /**
+       * 
+       * compiler.outputFileSystem  通过 memory-fs 插件来完成在内存中的读写。 
+       * 
+      */
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
         require(paths.proxySetup)(app);
@@ -101,6 +111,7 @@ module.exports = function(proxy,allowedHost,bankId) {
       // it used the same host and port.
       // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware());
-    },
+
+    }
   };
 };

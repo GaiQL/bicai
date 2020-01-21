@@ -1,0 +1,86 @@
+@import 'Common/assets/style/px2rem.scss';
+.am-action-sheet-mask,
+.am-action-sheet-wrap {
+    transform:translateZ(200px) !important;
+}
+.BankDetail-hotLine {
+    height:px2rem( 78 );
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    p {
+        color: #508CEE;
+
+        span {
+            font-size: px2rem(12);
+        }
+
+        i {
+            font-size: px2rem(12);
+            padding-right: px2rem(4);
+        }
+
+        &:last-child {
+            padding-top: px2rem(6);
+        }
+    }
+}
+
+.BottomColumn-hotLine{
+    height: px2rem(60);
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    >p{
+        height:px2rem(20);
+        display: flex;
+        align-items:center;
+        font-size: px2rem(12);
+        :first-child{
+            padding-right:px2rem(8);
+        }
+    }
+    >p:nth-of-type(1){
+        img{
+            height:px2rem(16);
+            width:px2rem(16);
+        }
+    }
+    >p:nth-of-type(2){
+        width:px2rem(24);
+    }
+    >p:nth-of-type(3){
+        color: #508CEE;
+        i{
+            font-size: px2rem(12);
+        }
+    }
+}
+
+.BottomColumn-position{
+    position: absolute;
+    width: 100%;
+}
+.action-sheet{
+    .am-action-sheet-content{
+        .am-action-sheet-button-list{
+            &:first-child{
+                color: #508CEE!important;
+            }
+            .am-action-sheet-destructive-button{
+                color: #508CEE!important;
+                background: #fff !important;
+            }
+        }
+    }
+}
+
+.am-action-sheet-button-list .am-action-sheet-cancel-button{
+    padding-top: 6px;
+    position: relative;
+    overflow: hidden;
+}

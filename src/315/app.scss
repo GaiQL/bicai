@@ -1,0 +1,184 @@
+@import 'Common/assets/style/px2rem.scss';
+
+
+#root{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.none{
+    display: none !important;
+}
+.hidden{
+    visibility: hidden !important;
+}
+.block{
+    display: block !important;
+}
+.am-modal-alert-content{
+    color: #333333;
+}
+.am-modal-content{
+    border-radius: 2px!important;
+}
+
+.am-list-item {
+    border-bottom: 1px solid #DDDDDD;
+    margin-left: px2rem(15);
+    padding-left: 0;
+
+    .am-list-content {
+        color: #333333 !important;
+        font-size: px2rem(16) !important;
+    }
+
+    .am-list-extra {
+        color: #666666 !important;
+        font-size: px2rem(16) !important;
+    }
+
+}
+
+.am-picker {
+    height: px2rem(211);
+    border-top: 1px solid #DDDDDD!important;
+}
+
+.am-picker-popup-header {
+    border-bottom: 1px solid #DDDDDD!important;
+    >div {
+        color: #666666;
+        font-size: px2rem(18);
+    }
+}
+.am-list-arrow {
+    display: none!important;
+}
+
+.bank-card {
+    width: 100%;
+    // height: px2rem(334);
+
+    .am-modal-content {
+        padding: 0;
+    }
+    .am-modal-transparent,.am-modal-content,.am-modal-body{
+        padding: 0!important;
+    }
+    .am-modal-header {
+        padding: 0;
+        padding: 0 px2rem(15);
+        border-bottom: 1px solid #DDDDDD;
+    }
+
+    .bank-card-tit {
+        display: flex;
+        font-size: px2rem(16);
+        justify-content: center;
+        align-items: center;
+        height: px2rem(44);
+        position: relative;
+        span:first-child{
+            position: absolute;
+            left: 0;
+        }
+        span:last-child{
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .bank-card-list {
+        max-height: px2rem(217);
+        overflow-y: auto;
+        .list-opacity{
+            opacity: .5;
+        }
+        .bank-card-item {
+            height: px2rem(71);
+            display: flex;
+            border-bottom: 1px solid #DDDDDD;
+            padding-right: px2rem(15);
+            margin-left: px2rem(15);
+            align-items: center;
+            position: relative;
+            p {
+                &:first-child {
+                    width: px2rem(28);
+                    height: px2rem(28);
+                    img {
+                        width: 100%;
+                    }
+                }
+                &:nth-child(2) {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                    padding-left:  px2rem(17);
+                    span {
+                        font-size: px2rem(12);
+                        color: #666666;
+                        line-height: px2rem(18);
+                        &:first-child {
+                            font-size: px2rem(16);
+                            color: #333333;
+                            line-height: px2rem(26);
+                        }
+                        .item-details{
+                            font-size: px2rem(12);
+                            color:rgba(102,102,102,1);
+                            line-height: px2rem(19);
+                        }
+                        .look{
+                            padding-left: px2rem(4);
+                            color:rgba(80,140,238,1);
+                            line-height: px2rem(19);
+                        }
+                        
+                    }
+                }
+                &:last-child{
+                    position: absolute;
+                    right: px2rem(15);
+                    i{
+                        color: #14B796;
+                    }
+                }
+            }
+        }
+    }
+
+    .add-bank-card {
+        height: px2rem(71);
+        display: flex;
+        align-items: center;
+        padding: 0  px2rem(15);
+        p {
+            display: flex;
+            align-items: center;
+        }
+
+        span {
+            &:first-child {
+                i {
+                    font-size: px2rem(30);
+                    color: #508CEE;
+                }
+            }
+
+            &:nth-child(2) {
+                font-size: px2rem(16);
+                color: #666666;
+                padding-left: px2rem(10);
+            }
+
+            &:last-child {
+                i {
+                    font-size: px2rem(16);
+                    color: #999999;
+                    padding-left: px2rem(8);
+                }
+            }
+        }
+    }
+}

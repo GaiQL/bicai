@@ -20,7 +20,7 @@ const tsImportPluginFactory = require('ts-import-plugin');
 const rootDir = path.dirname(__dirname);
 const Config = require('../index');
 const fs = require('fs');
-let paths = require('../paths');
+const createPaths = require('../paths');
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -38,7 +38,7 @@ let dependenciesDllArr = fs.readdirSync('./dependenciesDll')
 // The development configuration is different and lives in a separate file.
 module.exports = ( bankId ) => {
   
-  paths = paths( bankId );
+  let paths = createPaths( bankId );
 
   // Webpack uses `publicPath` to determine where the app is being served from.
   // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -100,7 +100,7 @@ module.exports = ( bankId ) => {
   };
 
   return {
-    mode: 'production',
+    mode: 'production', //'production',//,
     // Don't attempt to continue if there are any errors.
     bail: true,
     // We generate sourcemaps in production. This is slow but gives good results.
@@ -117,6 +117,8 @@ module.exports = ( bankId ) => {
       // chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
       // We inferred the "public path" (such as / or /my-project) from homepage.
       publicPath: publicPath,
+      filename: 'static/js/[name].[chunkhash:8].js',
+      chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
       libraryTarget: 'umd',
       // Point sourcemap entries to original disk location (format as URL on Windows)
       devtoolModuleFilenameTemplate: info =>
@@ -321,6 +323,10 @@ module.exports = ( bankId ) => {
       //   fileName: 'asset-manifest.json',
       //   publicPath: publicPath,
       // }),
+      new MiniCssExtractPlugin({
+        filename: 'static/css/[name].[contenthash:8].css',
+        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+      }),
       // Generate a service worker script that will precache, and keep up to date,
       // the HTML & assets that are part of the Webpack build.
       // new SWPrecacheWebpackPlugin({

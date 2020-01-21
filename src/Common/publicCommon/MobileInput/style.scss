@@ -1,0 +1,109 @@
+@import 'Common/assets/style/px2rem.scss';
+.am-list-item .am-input-control input{
+    color: #666666;
+}
+.am-list-item .am-input-control input::-webkit-input-placeholder {
+    font-size: px2rem(16)!important;
+}
+.am-list-item {
+    border: 0;
+}
+
+.am-list-item {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.am-list-item.am-input-item {
+    padding: 0;
+}
+
+.am-list-line:after {
+    display: none !important;
+}
+
+.BcBankInput, .BcPhoneInput {
+    height: auto;
+    background: #fff;
+    .addNewBank-card-bank, .addNewBank-card-phone {
+        border-bottom: 1px solid #dddddd;
+        margin-left: px2rem(15);
+        padding-right: px2rem(15);
+
+        &:last-child {
+            border: 0;
+        }
+
+        .bank-tit {
+            color: #333333;
+            font-size: px2rem(10);
+            padding-top: px2rem(7);
+            position: absolute;
+        }
+
+        .addNewBank-card-input {
+            display: flex;
+            justify-content: space-between;
+            // padding-bottom: px2rem(12);
+            padding-top: px2rem(26);
+            align-items: flex-start;
+
+            span {
+                font-size: px2rem(16);
+                color: #666666;
+                &:first-child{
+                    width: 90%;
+                }
+                &:nth-child(2) {
+                    color: #508CEE;
+                }
+            }
+
+            input {
+                font-size: px2rem(16) !important;
+            }
+        }
+
+        .err-tit {
+            color: #F4333C;
+            padding: 0;
+            padding-bottom: px2rem(8);
+        }
+    }
+}
+.successtit{
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding-bottom: px2rem(8);
+    position: relative;
+    align-items: flex-start;
+    .successtit-logo{
+        width: px2rem(14);
+        height: px2rem(14);
+        display: block;
+        padding-top: 2px;
+        img{
+            max-width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+    .successtit-tit{
+        width: px2rem(315);
+        padding-left: px2rem(8);
+        // position: absolute;
+        left: px2rem(12);
+
+        span{
+            &:first-child{
+                margin-right: px2rem(12);
+                width: auto !important;
+            }
+            display: inline-block;
+            font-size: px2rem(10)!important;
+            color: #999999!important;
+        }
+    }
+}

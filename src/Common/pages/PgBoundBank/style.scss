@@ -1,0 +1,120 @@
+@import "Common/assets/style/px2rem.scss";
+
+.am-action-sheet-button-list-item {
+  overflow: hidden;
+}
+
+.BoundBank {
+  width: 100%;
+  height: 100%;
+  background: #f6f6f9;
+  overflow-y: auto;
+  .BoundBank-list {
+    padding: 0 px2rem(15);
+    //background: darkolivegreen;
+    margin-top: px2rem(12);
+    .BoundBank-list-item {
+      width: 100%;
+      height: px2rem(130);
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+      }
+
+      p {
+        position: absolute;
+      }
+
+      .BoundBank-item-logo {
+        width: px2rem(28);
+        height: px2rem(28);
+        top: px2rem(27);
+        left: px2rem(27);
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+      .BoundBank-item-text {
+        color: #fff;
+        font-size: px2rem(18);
+        top: px2rem(32);
+        left: px2rem(70);
+      }
+      .BoundBank-item-default {
+        width: px2rem(60);
+        height: px2rem(22);
+        right: px2rem(22);
+        top: px2rem(30);
+        border: 1px solid #fff;
+        border-radius: 2px;
+        color: #fff;
+        line-height: px2rem(22);
+        text-align: center;
+      }
+      .BoundBank-item-num {
+        bottom: px2rem(28);
+        left: px2rem(70);
+        span {
+          color: #fff;
+          font-size: px2rem(18);
+          padding-left: px2rem(22);
+          &:first-child {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  .BoundBank-confirm {
+    margin-top: px2rem(36) !important;
+  }
+  .BoundBank-tip {
+    color: #999999;
+    font-size: px2rem(12);
+    padding: 0 px2rem(15);
+    margin-top: px2rem(12);
+  }
+}
+.popupList-child {
+  height: px2rem(44.5);
+  line-height: px2rem(44.5);
+  color: rgba(51, 51, 51, 1);
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  font-size: px2rem(20);
+  background: #fff;
+}
+.popupList {
+  background: rgba(0, 0, 0, 0.253);
+}
+.popupList-child:nth-last-child(1) {
+  background: #fff;
+  margin-top: px2rem(8);
+}
+.popupList-child:first-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.253);
+}
+.BoundBank-title {
+  text-align: center;
+  img {
+    width: px2rem(134);
+    height: "px2rem(162)";
+    margin-top: px2rem(56);
+  }
+  > div {
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102, 102, 102, 1);
+    line-height: 22px;
+  }
+  .Bound-tit {
+    margin-top: px2rem(20);
+  }
+}

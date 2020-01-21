@@ -1,0 +1,120 @@
+@import 'Common/assets/style/px2rem.scss';
+.up-select{
+    width: 100%;
+    z-index: 100;
+    .am-modal-header {
+        padding: 0 px2rem(15);
+        border-bottom: 1px solid #DDDDDD;
+    }
+    .am-modal-content {
+        padding: 0;
+    }
+    .am-modal-transparent,.am-modal-content,.am-modal-body{
+        padding: 0!important;
+    }
+    .top-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: px2rem(44);
+        font-size: px2rem(16);
+        position: relative;
+        img{
+            max-width: px2rem(15);
+            max-height: px2rem(15);
+            position: absolute;
+            left: px2rem(0)
+        }
+    }
+    .card-box{
+        max-height: px2rem(217);
+        overflow-y: auto;
+        .large{
+            em{
+                opacity: .5; 
+            }
+        }
+        .disabled{
+            opacity: .5;
+            b{
+                color:rgba(80,140,238,1);
+            }
+        }
+        .item-list{
+            height: px2rem(71);
+            display: flex;
+            border-bottom: 1px solid #DDDDDD;
+            padding-right: px2rem(15);
+            margin-left: px2rem(15);
+            align-items: center;
+            .bank-logo{
+                width: px2rem(30);
+                height: px2rem(30);
+                position: relative;
+                img{
+                    max-width: 100%;
+                    max-height: 100%;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                    margin: auto;
+                }
+            }
+            .item-details{
+                flex: 1;
+                text-align: left;
+                padding-left: px2rem(17);
+                p{
+                    font-family:PingFangSC-Regular;
+                    font-weight:400;
+                    line-height: px2rem(19);
+                    color: #666666;
+                    font-size: px2rem(12);
+                    b{
+                        font-weight: 300;
+                        color: #508CEE;
+                    }
+                    button{
+                        padding-left: px2rem(4);
+                        color:rgba(80,140,238,1);
+                        line-height: px2rem(19);
+                        outline: none;
+                    }
+                }
+                .bank-name{
+                    font-size:16px;
+                    color:rgba(51,51,51,1);
+                    line-height: px2rem(26);
+                }
+            }
+            .current-icon{
+                width: px2rem(22);
+            }
+        }
+    }
+    .bank-btn{
+        height: px2rem(71);
+        display: flex;
+        align-items: center;
+        padding: 0 px2rem(15);
+        .card-icon {
+            width: px2rem(30);
+            height: px2rem(20);
+            display: inline-block;
+            img{
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+        .bank-handle{
+            padding: 0 px2rem(8) 0 px2rem(15);
+            color:rgba(102,102,102,1);
+        }
+        .arrow-icon{
+            font-size: px2rem(16);
+            color: #999999;
+        }
+    }
+}

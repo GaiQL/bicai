@@ -1,0 +1,121 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.deposit {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #F6F6F9;
+  flex-direction: column;
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+
+  .head {
+    background: #518BEE !important;
+    color: #FFFFFF;
+    border-bottom: none !important;
+  }
+
+  .list_topNote{
+    height:px2rem(22);
+    line-height: px2rem(22);
+    font-size:px2rem(12);
+    color:#F4AA39;
+    background: #FFFFFF;
+    padding: px2rem(7) px2rem(15);
+    margin-bottom:px2rem(12);
+  }
+
+  .important-info {
+    background: #508CEE;
+    height: px2rem(115);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .line {
+      width: px2rem(1);
+      height: px2rem(20);
+      border-left: px2rem(1) solid #FFFFFF;
+      // padding-right: px2rem(20);
+    }
+
+    div {
+      width:49%;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      width: 49%;
+      color: rgba(255, 255, 255, 1);
+      text-align: center;
+
+      p:first-child {
+        line-height: px2rem(30);
+        font-size: px2rem(22);
+        padding-bottom: px2rem(7);
+      }
+
+      p:last-child {
+        line-height: px2rem(17);
+        font-size: px2rem(12);
+      }
+    }
+
+    div:first-child {
+      padding-left: px2rem(30);
+    }
+
+    div:last-child {
+      padding-right: px2rem(30);
+    }
+  }
+
+  .nav {
+    height: px2rem(44);
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 px2rem(72);
+
+    &.noNav {
+      height: px2rem(44);
+      display: none;
+    }
+
+    span {
+      display: inline-block;
+      // width: 50%;
+      text-align: center;
+      line-height: px2rem(40);
+      font-size: px2rem(15);
+      color: rgba(51, 51, 51, 1);
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+    }
+
+    .hold-active {
+      color: #508CEE;
+      position: relative;
+    }
+
+    .hold-active::after {
+      content: '';
+      width: px2rem(24);
+      height: px2rem(2);
+      background: #508CEE;
+      border-radius: px2rem(1);
+      position: absolute;
+      left: 0;
+      bottom: px2rem(-34);
+      right: 0;
+      top: 0;
+      margin: auto;
+    }
+  }
+
+  .list-box {
+    background: url(~Common/assets/images/depositBg.jpg) no-repeat;
+    background-color: #FFFFFF;
+    background-size: 100%;
+  }
+}

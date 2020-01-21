@@ -1,0 +1,35 @@
+@import 'Common/assets/style/px2rem.scss';
+.address-popup{
+    height: px2rem(60);
+    background: white;
+    border-bottom: px2rem(1) solid #dddddd;
+    z-index: 100000;
+    padding: 0 px2rem(15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div{
+        flex: 1;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .am-list-item .am-list-line .am-list-content, .am-list-extra{
+            padding: 0 !important;
+        }
+        .am-list-item.am-list-item-active{
+            background: white !important;
+        }
+        .am-list-item .am-list-line .am-list-extra{
+            flex-basis: 40%;
+        }
+    }
+    .go-box{
+        display: flex;
+        width: px2rem(10);
+    }
+    
+}
+.am-picker-popup-item{
+    height: 46px !important;
+}

@@ -41,6 +41,9 @@ function getServedPath(appPackageJson) {
 
 // config after eject: we're in ./config/
 module.exports = ( bankId ) => {
+
+  let filePath = bankId == "Common"?"common":bankId;
+
   return {
     dotenv: resolveApp('.env'),
     testsSetup: resolveApp('src/setupTests.js'),
@@ -48,13 +51,14 @@ module.exports = ( bankId ) => {
     publicUrl: getPublicUrl(resolveApp('package.json')),
     servedPath: getServedPath(resolveApp('package.json')),
     appPath: resolveApp('.'),
-    appBuild: bankId == "common"?resolveApp('common'):resolveApp(`${bankId}`),
+    appFilePath:filePath,
+    appBuild: resolveApp(`${filePath}`),
     appPublic: resolveApp('public'),
     appHtml: resolveApp('public/index.html'),
     appIndexJs: resolveApp(`src/${bankId}/index.js`),
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp(`src/${bankId}`),
-    appCommon: resolveApp(`src/Common`),
+    // appCommon: resolveApp(`src/Common`),
     src: resolveApp(`src`),
     appTsConfig: resolveApp('tsconfig.json'),
     yarnLockFile: resolveApp('yarn.lock'),

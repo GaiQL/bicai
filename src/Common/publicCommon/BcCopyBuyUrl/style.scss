@@ -1,0 +1,29 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.copy-box {
+    margin-top: px2rem(31);
+    width: 100%;
+    height: auto;
+    margin-bottom: px2rem(38);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    // padding: 0 px2rem(10);
+    align-items: center;
+
+    .copy-text {
+        color: #666;
+        font-size: px2rem(12);
+        line-height: px2rem(17);
+        margin-right: px2rem(8);
+    }
+
+    .buySuccess-copy {
+        border: px2rem(1) solid #3b6adc;
+        color: #3b6adc;
+        border-radius: px2rem(3);
+        padding: px2rem(2) px2rem(4);
+        font-size: px2rem(10);
+        line-height: px2rem(14);
+    }
+}

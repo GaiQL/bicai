@@ -1,0 +1,53 @@
+@import 'Common/assets/style/px2rem.scss';
+
+.recharge-success {
+  .success {
+    background: #fff;
+    text-align: center;
+    padding-top: px2rem(36);
+    padding-bottom: px2rem(36);
+    .icon-success {
+      width: px2rem(60);
+      height: px2rem(60);
+    }
+    .text {
+      color: #333333;
+      font-size: px2rem(18);
+      line-height: px2rem(29);
+      padding-top: px2rem(18);
+    }
+    .tip {
+      color: #999999;
+      font-size: px2rem(12);
+      line-height: px2rem(17);
+      padding: px2rem(8) 0 px2rem(36);
+    }
+  }
+  .info {
+    border-top: px2rem(1) solid #dddddd;
+    border-bottom: px2rem(1) solid #dddddd;
+    margin-bottom: px2rem(36);
+    p {
+      display: flex;
+      flex-flow:  row nowrap;
+      justify-content: space-between;
+      padding-top: px2rem(8); 
+      padding-bottom: px2rem(8); 
+      color: #333333;
+      font-size: px2rem(16);
+      // line-height: px2rem(43);
+      line-height: px2rem(26);
+      border-bottom: px2rem(1) solid #dddddd;
+      margin-left: px2rem(15);
+      padding-right: px2rem(15);
+      span {
+        color: #999999;
+        text-align: right;
+      //  float: right;
+      }
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+
+@import 'Common/assets/style/px2rem.scss';
+.footer-bicai{
+  position: fixed;
+  bottom: px2rem(30);
+  width: 100%;
+  .openPerfection-tip{
+    color: #508CEE;
+    font-size:  px2rem(12);
+    text-align: center;
+    width: 100%;
+  }
+}

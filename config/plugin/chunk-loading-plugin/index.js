@@ -33,15 +33,16 @@ class ChunkLoadingPlugin {
 
                     return Template.asString([
                         ...startPart,
-                        "let chunksArr = [chunkId]",
-                        "if(/Common_/.test(chunkId)){",
-                            Template.indent("chunksArr = chunkGroupsStore[chunkId];"),
-                        "}",
-                        "",
-                        "chunksArr.forEach(( chunkId )=>{",
-                            "console.log( chunkId )",
-                            Template.indent([...chunkLoadingPart]),
-                        "})",
+                        // "let chunksArr = chunkGroupsStore[chunkId];",
+                        // // "if(/Common_/.test(chunkId)){",
+                        // //     Template.indent("chunksArr = chunkGroupsStore[chunkId];"),
+                        // // "}",
+                        // "",
+                        // "chunksArr.forEach(( chunkId )=>{",
+                        //     ,
+                        // "})",
+                        "console.log( chunkId )",
+                        Template.indent([...chunkLoadingPart]),
                         ...endPart
                     ])
                     
