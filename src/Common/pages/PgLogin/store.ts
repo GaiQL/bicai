@@ -29,6 +29,7 @@ export class PgLogin extends StoreExtends{
         }])
     }
     ptClick(){
+        console.log(123213213);
         let res:any={
             amount:"10000",
             buyResult:{

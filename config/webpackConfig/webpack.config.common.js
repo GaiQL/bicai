@@ -17,10 +17,11 @@ const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 const tsImportPluginFactory = require('ts-import-plugin');
-const rootDir = path.dirname(__dirname);
+const rootDir = path.dirname(path.dirname(__dirname));
 const Config = require('../index');
 const fs = require('fs');
 const createPaths = require('../paths');
+const cacheGroups = require('./cacheGruops.js');
 
 // style files regexes
 const cssRegex = /\.css$/;
@@ -172,10 +173,11 @@ module.exports = ( bankId ) => {
       // Automatically split vendor and commons
       // https://twitter.com/wSokra/status/969633336732905474
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-      // splitChunks: {
-      //   chunks: 'all',
-      //   name: false
-      // },
+      splitChunks: {
+        chunks: 'all',
+        name: false,
+        cacheGroups:cacheGroups(bankId)
+      },
       // Keep the runtime chunk seperated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
       runtimeChunk: true,
@@ -251,16 +253,18 @@ module.exports = ( bankId ) => {
             include: paths.src,   
             loader: 'awesome-typescript-loader',
             options: {
-                useCache: true,
-                transpileOnly: true,
+              // useCache: true,
+              // usePrecompiledFiles: true,
+                useCache: false,
+                // transpileOnly: true,
                 errorsAsWarnings: true,
-                // usePrecompiledFiles: true,
+                usePrecompiledFiles: false,
                 sourceMap: false,
-                getCustomTransformers: ( program ) => ({
-                  before: [ 
-                    tsImportPluginFactory({ libraryName: 'antd-mobile', style: 'css' })
-                  ]
-                })
+                // getCustomTransformers: ( program ) => ({
+                //   before: [ 
+                //     tsImportPluginFactory({ libraryName: 'antd-mobile', style: 'css' })
+                //   ]
+                // })
             }
           },
           {

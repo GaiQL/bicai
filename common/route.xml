@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--type: 0 nativie页面 1 native Html页面 2 h5页面（http链接 ） 3扩展-->
+<!--flagKey: Android和Ios的统一页面标识符-->
+<!--routeKey: 在路由系统中，每一个controller唯一的名字-->
+<!--androidPath iosPath native类的路径 当type==1 路径只填写相对路径-->
+<uinits>
+    <!-- app 登录页 -->
+    <page>
+        <routeKey>login</routeKey>
+        <flagKey>login</flagKey>
+        <type>0</type>
+        <androidPath>com.bs.finance.ui.my.MyLoginActivity</androidPath>
+        <iosPath>login</iosPath>
+    </page>
+    <!--首页-->
+    <page>
+        <flagKey>appHomeActivity</flagKey>
+        <routeKey>appHomeActivity</routeKey>
+        <type>0</type>
+        <androidPath>com.bs.finance.ui.home.MainActivity</androidPath>
+        <iosPath>firstPage</iosPath>
+    </page>
+    <!--本行产品列表页-->
+    <page>
+        <routeKey>bankProductList</routeKey>
+        <flagKey>bankProductList</flagKey>
+        <type>0</type>
+        <androidPath>com.bs.finance.ui.rank.RankBankFinalDetailActivity</androidPath>
+        <iosPath>WB_BankInfoViewController</iosPath>
+    </page>
+
+    <!-- 产品列详情页 -->
+    <page>
+        <routeKey>bankProduct</routeKey>
+        <flagKey>bankProduct</flagKey>
+        <type>0</type>
+        <androidPath>com.bs.finance.ui.rank.RankBankSharedActivity</androidPath>
+        <iosPath>KW_BaseProductsViewModel</iosPath>
+    </page>
+
+    <!-- 二类户持仓页 -->
+    <page>
+        <routeKey>holdingAssets</routeKey>
+        <flagKey>holdingAssets</flagKey>
+        <type>0</type>
+        <androidPath>holdingAssets</androidPath>
+        <iosPath>holdingAssetsRouter</iosPath>
+    </page>
+
+    <!-- app跳转h5地址-->
+    <page>
+        <routeKey>index</routeKey>
+        <flagKey>index</flagKey>
+        <type>1</type>
+        <androidPath>index.html</androidPath>
+        <iosPath>index.html</iosPath>
+    </page>
+
+
+
+</uinits>

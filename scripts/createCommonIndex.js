@@ -29,7 +29,7 @@ const createCommonIndex = () => {
                 || /PgNativeStatus/.test( _name )
                 
             ) return;
-            source.push(`import '${_name.split('_').join('/')}'`);
+            source.push(`import '${_name.split('_').join('/')}';`);
         }
 
     })

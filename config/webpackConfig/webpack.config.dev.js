@@ -150,7 +150,7 @@ module.exports = ( bankId ) => {
       splitChunks: {
         chunks: 'all',
         name: false,
-        cacheGroups
+        cacheGroups:cacheGroups(bankId)
       },
       // Keep the runtime chunk seperated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985
@@ -232,11 +232,7 @@ module.exports = ( bankId ) => {
                     useCache: true,
                     usePrecompiledFiles: true,
                     plugins: [
-                        'react-hot-loader/babel',
-                        ['@babel/plugin-proposal-decorators', {
-                            "legacy": true
-                        }],
-                        ["@babel/plugin-syntax-dynamic-import"]
+                        // 'react-hot-loader/babel',
                     ]
                 }
             },
@@ -282,7 +278,7 @@ module.exports = ( bankId ) => {
       // if (process.env.NODE_ENV === 'development') { ... }. See `./env.js`.
       new webpack.DefinePlugin(env.stringified),
       // This is necessary to emit hot updates (currently CSS only):
-      new webpack.HotModuleReplacementPlugin(),
+      // new webpack.HotModuleReplacementPlugin(),
       // Watcher doesn't work well if you mistype casing in a path so we use
       // a plugin that prints an error when you attempt to do this.
       // See https://github.com/facebook/create-react-app/issues/240

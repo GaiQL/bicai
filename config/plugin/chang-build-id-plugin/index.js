@@ -36,69 +36,69 @@ class ChangeBuildIdPlugin {
                 if( module instanceof NormalModule ) module.id = pathSwitch( module.resource );
 
             })
-            // compilation.hooks.beforeModuleIds.tap(pluginName, modules => {
+            compilation.hooks.beforeModuleIds.tap(pluginName, modules => {
                 
-            //     modules.forEach(( module )=>{
+                modules.forEach(( module )=>{
 
-            //         // 两次打包 ConcatenatedModule 的表现不一样；
-            //         // ConcatenatedModule.id会与 rootModule.id重合；；
-            //         if( module instanceof ConcatenatedModule ) module.id = `${module.rootModule.id}`;
+                    // 两次打包 ConcatenatedModule 的表现不一样；
+                    // ConcatenatedModule.id会与 rootModule.id重合；；
+                    if( module instanceof ConcatenatedModule ) module.id = `${module.rootModule.id}`;
                     
-            //         // let identifier = "";
-            //         // if( module instanceof ConcatenatedModule ){
-            //         //     identifier = module.rootModule.resource;
-            //         // }else if( module instanceof NormalModule ){
-            //         //     identifier = module.resource;
-            //         // }
+                    // let identifier = "";
+                    // if( module instanceof ConcatenatedModule ){
+                    //     identifier = module.rootModule.resource;
+                    // }else if( module instanceof NormalModule ){
+                    //     identifier = module.resource;
+                    // }
 
-            //         // if( identifier ){
-            //         //     let identifierArr = identifier.split('src');
-            //         //     module.id = identifierArr[identifierArr.length - 1];
-            //         // }
+                    // if( identifier ){
+                    //     let identifierArr = identifier.split('src');
+                    //     module.id = identifierArr[identifierArr.length - 1];
+                    // }
                     
-            //         /**
-            //             ConcatenatedModule
-            //             _identifier : "e:\open-api-bank-all\open-api-bank-3.0-eject\node_modules\awesome-typescript-loader\dist\entry.js??ref--4-oneOf-2!e:\open-api-bank-all\open-api-bank-3.0-eject\src\Common\Pgtest\index.tsx efee892b2357ea82d35bbbd23a092ed5"
+                    /**
+                        ConcatenatedModule
+                        _identifier : "e:\open-api-bank-all\open-api-bank-3.0-eject\node_modules\awesome-typescript-loader\dist\entry.js??ref--4-oneOf-2!e:\open-api-bank-all\open-api-bank-3.0-eject\src\Common\Pgtest\index.tsx efee892b2357ea82d35bbbd23a092ed5"
 
-            //             dependencies  array 18
-            //             Array(18) [
-            //                 HarmonyCompatibilityDependency, 
-            //                 HarmonyInitDependency, 
-            //                 HarmonyExportHeaderDependency,
-            //                 HarmonyExportSpecifierDependency,
-            //                 ConstDependency
-            //                 HarmonyExportExpressionDependency
-            //                 HarmonyImportSideEffectDependency
-            //                 ....
-            //             ]
+                        dependencies  array 18
+                        Array(18) [
+                            HarmonyCompatibilityDependency, 
+                            HarmonyInitDependency, 
+                            HarmonyExportHeaderDependency,
+                            HarmonyExportSpecifierDependency,
+                            ConstDependency
+                            HarmonyExportExpressionDependency
+                            HarmonyImportSideEffectDependency
+                            ....
+                        ]
                         
-            //             modules array NormalModule 3
-            //             "Common\utils\method.ts"
-            //             "Common\Pgtest\store.ts"
-            //             "Common\Pgtest\index.tsx" 
+                        modules array NormalModule 3
+                        "Common\utils\method.ts"
+                        "Common\Pgtest\store.ts"
+                        "Common\Pgtest\index.tsx" 
                      
-            //          */
+                     */
 
-            //     })
+                })
 
-            // })
+            })
 
-            // compilation.hooks.beforeChunkIds.tap(pluginName, chunks => {
+            compilation.hooks.beforeChunkIds.tap(pluginName, chunks => {
                 
-            //     chunks.forEach(( chunk )=>{
-            //         /*
+                chunks.forEach(( chunk )=>{
+                    /*
                     
-            //             webpack/JavascriptModulesPlugin.js
+                        webpack/JavascriptModulesPlugin.js
 
-            //             const filenameTemplate = chunk.filenameTemplate || outputOptions.chunkFilename;
+                        const filenameTemplate = chunk.filenameTemplate || outputOptions.chunkFilename;
                     
-            //         */
-            //         if( chunk.name && /Common_/.test(chunk.name) ){
-            //             chunk.id = chunk.name;
-            //         }
-            //     })
+                    */
+                    if( chunk.name && /Common_/.test(chunk.name) ){
+                        chunk.id = chunk.name;
+                    }
+                })
 
-            // })
+            })
 
         })
 

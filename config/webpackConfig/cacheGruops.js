@@ -4,6 +4,15 @@ const fs = require('fs');
 const { pathSwitch } = require("../method");
 let commonFiles = [];
 
+commonFiles.push({
+  chunks: 'all',
+  name:'Common_pageStore',
+  test: module => new RegExp('Pg').test( module.resource ) && /store/.test( module.resource ),
+  priority: 2,
+});
+
+
+
 const readFileList = (dir) => {
 
   const files = fs.readdirSync(dir);
@@ -55,19 +64,20 @@ const readFileList = (dir) => {
 
 readFileList(path.resolve(__dirname, '../../src/Common'));
 
-let cacheGroups = {};
-commonFiles.forEach((item) => {
-  let {
-    name,
-    test
-  } = item;
-  cacheGroups[item.name] = {
-    name,
-    test,
-    minSize: 0,
-    minChunks: 1,
-    priority: 0
-  }
-})
 
-module.exports = cacheGroups;
+module.exports = ( bankId ) => {
+  let cacheGroups = {};
+  let chunks = bankId == "Common"?"all":"async";
+
+  commonFiles.forEach((item) => {
+    cacheGroups[item.name] = {
+      minSize: 0,
+      minChunks: 1,
+      priority: 0,
+      chunks,
+      ...item
+    }
+  })
+
+  return cacheGroups;
+};

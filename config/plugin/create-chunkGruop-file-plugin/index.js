@@ -23,6 +23,15 @@ class CreateChunkGruopFilePlugin {
             compilation.mainTemplate.hooks.assetPath.tap(pluginName, (filename,data) => {
                 this.chunkGroupsPath = compiler.outputPath + path.sep + 'chunkGroupsFile.js';
             })
+            compilation.hooks.beforeChunkAssets.tap(pluginName, () => {
+
+                // compilation.chunkGroups.forEach( chunkGroup => {
+                //     if( chunkGroup.name == "main" ){
+                //         chunkGroup.chunks = chunkGroup.chunks.filter( chunk => !/Common_page/.test(chunk.id) )
+                //     }
+                // })
+
+            })
         })
 
         compiler.hooks.afterEmit.tap(pluginName, compilation => {

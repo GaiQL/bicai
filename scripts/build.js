@@ -15,13 +15,14 @@ process.on('unhandledRejection', err => {
 require('../config/env');
 const verify = require('./verify.js');
 
+const createCommonIndex = require('./createCommonIndex');
 let bank = process.argv[2];
 
-if( bank != "common" ){
+if( bank != "Common" ){
   verify( process.argv,"build" )
 }else{
   
-  
+  createCommonIndex();
 
 }
 
@@ -30,7 +31,7 @@ const chalk = require('chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const bfj = require('bfj');
-const config = require(`../config/webpackConfig/webpack.config.${/^common$/.test(bank)?'extract':'prod'}`)(bank);
+const config = require(`../config/webpackConfig/webpack.config.${/^Common$/.test(bank)?'extract':'prod'}`)(bank,'build');
 const paths = require('../config/paths')(bank);
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
@@ -72,7 +73,7 @@ checkBrowsers(paths.appPath, isInteractive)
     // if you're in it, you don't end up in Trash
     fs.emptyDirSync(paths.appBuild);
     // Merge with the public folder
-    if( bank == "common" ){ copyPublicFolder(); }
+    if( bank == "Common" ){ copyPublicFolder(); }
     // Start the webpack build
     return build(previousFileSizes);
   })

@@ -11,10 +11,11 @@ const ChunkLoadingPlugin = require('../plugin/chunk-loading-plugin');
 const CreateChunkGruopFilePlugin = require('../plugin/create-chunkGruop-file-plugin');
 const createPaths = require('../paths');
 const getClientEnvironment = require('../env');
+const HtmlAssetPathPlugin = require('../plugin/html-asset-path-plugin');
 
-module.exports = ( bankId ) => {
-
-  const baseConfig = require('./webpack.config.dev')(bankId);
+module.exports = ( bankId,type ) => {
+  
+  const baseConfig = require(`./webpack.config.${type=="build"?'common':'dev'}`)(bankId);
   let paths = createPaths( bankId );
 
     // Webpack uses `publicPath` to determine where the app is being served from.
@@ -66,7 +67,8 @@ module.exports = ( bankId ) => {
       new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
       // new CreateChunkGruopFilePlugin( bankId ),
       // new ChunkLoadingPlugin(),
-      // new CommonExtractPlugin( baseConfig.mode )
+      new CommonExtractPlugin( baseConfig.mode ),
+      new HtmlAssetPathPlugin()
     ]
 
   })

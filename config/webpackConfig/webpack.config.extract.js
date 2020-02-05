@@ -2,18 +2,14 @@ const fs = require('fs');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CreateHashFilePlugin = require('../plugin/create-hash-file-plugin');
-const cacheGroups = require('./cacheGruops');
 
+const createPaths = require('../paths');
 
-let createPaths = require('../paths');
+module.exports = (bankId,type) => {
 
-module.exports = (bankId) => {
-
-  const baseConfig = require('./webpack.config.dev')(bankId);
+  const baseConfig = require(`./webpack.config.${type=="build"?'common':'dev'}`)(bankId);
 
   let paths = createPaths(bankId);
-
-  console.log(cacheGroups);
 
   return merge(baseConfig, {
 

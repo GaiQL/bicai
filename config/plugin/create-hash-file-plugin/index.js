@@ -31,7 +31,7 @@ class CreateHashFilePlugin {
                 this.hashFilePath = compiler.outputPath + path.sep + 'hashFile.js';
                 this.chunkGroupsPath = compiler.outputPath + path.sep + 'chunkGroupsFile.js';
 
-                createDir( compiler.outputFileSystem,compiler.outputPath );
+                // createDir( compiler.outputFileSystem,compiler.outputPath );
 
             })
 
